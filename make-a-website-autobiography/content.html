@@ -1,0 +1,2377 @@
+Make a Website Autobiography!
+Summer 2016
+
+---
+
+@Day 1: Welcome to HTML!
+Parts of a website, creating an HTML file, and basic structure and formatting tags
+
+Webpages are written in a language called *HTML*.
+HTML stands for *H*yper *T*ext *M*arkup *L*anguage.
+A *browser* takes information written in HTML and presents it in a readable format.
+We will learn the most recent HTML standard, *HTML 5*.
+
+---
+
+What Do Websites Have?
+
+Let's take a look at some popular websites. Look for what they share in common, and see if we can identify different parts of them.
+
+---
+
+Making Our Own Theoretical Website
+
+Based on what we saw, let's imagine and draw out our own website together.
+
+---
+
+Creating an HTML file
+
+1. Create a folder. [[ - give it a cool name, like `my-fantastic-website-autobiography`]]
+2. In a code editor, create a new file.
+3. Save the file as `index.html` in the folder you created.
+4. Navigate to the file and double click. Your browser should open with an empty webpage.
+5. Every time edit your HTML file, save it, go to the browser and refresh the page.
+
+---
+
+Elements and Tags
+
+*Elements* are the building blocks of a webpage.
+`<p></p>` `<div></div>` `<title></title>`
+
+An element is made of two *tags*:
+an opening tag `<p>` and a closing tag. `</p>`.
+
+You can put text inside of an element.
+`<p>To be or not to be, that is the question.</p>`
+
+You can also put elements inside of an element.
+`<p>To be or <em>not</em> to be, <strong>that</strong> is the question.</p>`
+
+An element that contains another element is called a *parent element*.
+Elements that are *nested* inside a parent element are called *child elements*.
+
+*How many elements are there? Which element is the parent? Which elements are children?*
+
+---
+
+Starting Your Webpage
+
+The `<!DOCTYPE HTML>` tag is the *doctype declaration*. It tells the browser that this is an HTML 5 document[[, and not some other type of file]].
+
+Next comes the `<html>` element. This is the *root* of the HTML document. All other HTML tags must go inside of it.
+
+The `<html>` element contains only two elements: the `<head>` and the `<body>`.
+
+The `<head>` contains the important information about the webpage, such as the title or where *resources* it uses are located.
+
+The `<body>` contains all of the content that is visible on the webpage.
+
+
+{{
+Let's give our document a name!
+
+1. Add a `<title>` element inside of the `<head>`, on line 4. Be sure you have an opening tag and a closing tag.
+2. Inside of the `<title>`, insert a creative name for your webpage!
+3. The title should now appear on the browser tab.
+}}
+
+
+0	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+		</head>
+		<body>
+			
+		</body>
+	</html>
+
+---
+
+Defining the Structure
+
+When you look at a webpage, you can visually separate are made up of three general areas: a *header*, a *main content area*, and a *footer*.
+
+There are three special elements in HTML just for those purposes!
+`<header>` `<main>` `<footer>`
+
+{{
+*Common Parts of a Webpage*
+
+title | author | copyright | navigation menu | about me | tagline | related articles | blog posts
+}}[[Visualize your webpage on a browser]]
+
+*What kinds of content could go in the header? The main area? The footer?*
+
+{{
+Let's divide our webpage into three general areas!
+
+Add the following tags to the `<body>`, one right after another:
+
+`<header>` `<main>` `<footer>`
+}}
+
+
+0	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+		</head>
+		<body>
+			<header></header>
+			<main></main>
+			<footer></footer>
+		</body>
+	</html>
+
+---
+
+Big, Bold Headings
+
+*Headings* are elements that introduce sections or topics. They come in 6 sizes.
+`<h1>` `<h2>` `<h3>` `<h4>` `<h5>` `<h6>`
+
+`<h1>`s are the biggest, most important headings of all, while `<h6>`s are the smallest and least important.
+
+For instance, if you use `<h1>` as the main title of a section, you can use `<h2>`s to introduce sub-sections, `<h3>`s to introduce sub-sub-sections, and so on.
+
+{{
+Put an `<h1>` inside the `<header>`, and insert the title of your webpage.
+}}
+
+
+	<body>
+		<header>
+			<h1>The Webpage of Peter the Gopher</h1>
+		</header>
+		<main></main>
+		<footer></footer>
+	</body>
+
+---
+
+Content Sections
+
+Webpages can often contain a lot of information. We can keep everything organized by grouping related content into `<section>`s.
+
+{{
+*Brainstorm at least three topics, or sections, to include in your webpage.* Some ideas:
+
+- About yourself
+- Hobbies/Extracurriculars
+- Likes/Dislikes
+- Places you've traveled
+- A funny story
+- Photo collection
+- Books, movies, songs, or video games you like
+
+For each topic, add a `<section>` to `<main>`. In each `<section>`, add an `<h2>` title for that topic.
+}}
+
+
+	<body>
+		<header>
+			<h1>The Webpage of Peter the Gopher</h1>
+		</header>
+		<main>
+			<section>
+				<h2>Who Am I?</h2>
+			</section>
+			<section>
+				<h2>My Favorite Foods</h2>
+			</section>
+			<section>
+				<h2>Things I Like To Do</h2>
+			</section>
+		</main>
+		<footer></footer>
+	</body>
+
+---
+
+Paragraph Power!
+
+`<p>` elements represent *paragraphs*. They have margins on the top and bottom to separate them from other paragraphs.
+
+When writing paragraphs on your webpage, have the elements come one right after another, on their own line.
+
+{{
+Start writing about yourself! Add at least three paragraphs to one of your `<section>`s. Make sure each paragraph contains at least two sentences.
+
+Come up with an interesting motto or catchphrase, and add it as a paragraph in your `<header>`.
+
+Finally, write a copyright paragraph and place it in the `<footer>`. You can use the HTML entity `&amp;copy;` for the copyright symbol.
+}}
+
+
+	<body>
+		<header>
+			<h1>The Webpage of Peter the Gopher</h1>
+			<p>Don't whack me - I ain't no mole.</p>
+		</header>
+		<main>
+			<section>
+				<h2>Who Am I?</h2>
+				<p>My name is Peter the Gopher. I am a western pocket gopher, also known as thomomys mazama.</p>
+				<p>I was born to Doug the Gopher and Tina the Gopher. I also have three siblings and eleven cousins. My best friends are Mo the Mouse and Billy the Beetle.</p>
+				<p>I live in an underground burrow in the woodlands. And if there's one thing you should know about me, I love to dig tunnels!</p>
+			</section>
+			<section>
+				<h2>My Favorite Foods</h2>
+			</section>
+			<section>
+				<h2>Things I Like To Do</h2>
+			</section>
+		</main>
+		<footer>
+			<p>Copyright © 2016 Darryl Yeo. All rights reserved.</p>
+		</footer>
+	</body>
+
+---
+
+Adding Emphasis
+
+There are two tags you can use to *emphasize* certain words or phrases.
+`<em>` `<strong>`
+
+Text inside of `<em>` tags have an _italic font style_ (for _em_phasis).
+
+Text inside of `<strong>` tags have a *bold font weight*.
+
+Both `<em>` and `<strong>` are *inline elements*, because they are "in line" with text.
+As good practice, don't put them on their own line like the other *block* elements.
+
+
+	<body>
+		<header>
+			<h1>The Webpage of Peter the Gopher</h1>
+			<p>Don't whack me - I ain't no mole.</p>
+		</header>
+		<main>
+			<section>
+				<h2>Who Am I?</h2>
+				<p>My name is <strong>Peter the Gopher</strong>. I am a western pocket gopher, also known as <em>thomomys mazama</em>.</p>
+				<p>I was born to <strong>Doug the Gopher</strong> and <strong>Tina the Gopher</strong>. I also have <strong>three siblings</strong> and <strong>eleven cousins</strong>. My best friends are <strong>Mo the Mouse</strong> and <strong>Billy the Beetle</strong>.</p>
+				<p>I live in an underground burrow in the woodlands. And if there's one thing you should know about me, I <strong>love</strong> to dig tunnels!</p>
+			</section>
+			<section>
+				<h2>My Favorite Foods</h2>
+			</section>
+			<section>
+				<h2>Things I Like To Do</h2>
+			</section>
+		</main>
+		<footer>
+			<p>Copyright © 2016 Peter the Gopher. All rights reserved.</p>
+		</footer>
+	</body>
+
+---
+
+Lists
+
+HTML has two types of *lists*: *ordered lists* and *unordered lists*.
+`<ol>` `<ul>` 
+
+Each item in an ordered or unordered list is contained in an `<li>`, or *list item* element.
+
+List items in an ordered list are preceded by numbers, while list items in an unordered list are preceded by bullet points.
+
+Lists can even be nested inside of each other!
+
+{{
+Write about your opinion! Think of a list of "mosts", "leasts", "bests", or "worsts".
+
+Add an `<ol>` to one of your `<section>`s (or create a new one). Add `<li>`s for each item in your list according to how they rank.
+}}
+
+{{
+Now think of something else to list, but whose items don't have a particular order.
+
+Add a `<ul>` to one of your `<section>`s. Add `<li>`s for each item in your list.
+}}
+
+
+	<section>
+		<h2>My Favorite Foods</h2>
+		<ol>
+			<li>Radishes</li>
+			<li>Earthworms</li>
+			<li>Shrubs</li>
+		</ol>
+	</section>
+	<section>
+		<h2>Things I Like To Do</h2>
+		<ul>
+			<li>Burrow tunnels</li>
+			<li>Scavenge for plant roots</li>
+			<li>Play peekaboo</li>
+		</ul>
+	</section>
+
+---
+
+Day 1: Completed Example
+
+3	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+			<style>
+				
+			</style>
+		</head>
+		<body>
+			<header>
+				<h1>The Webpage of Peter the Gopher</h1>
+				<p>Don't whack me - I ain't no mole.</p>
+			</header>
+			<main>
+				<section>
+					<h2>Who Am I?</h2>
+					<p>My name is <strong>Peter the Gopher</strong>. I am a western pocket gopher, also known as <em>thomomys mazama</em>.</p>
+					<p>I was born to <strong>Doug the Gopher</strong> and <strong>Tina the Gopher</strong>. I also have <strong>three siblings</strong> and <strong>eleven cousins</strong>. My best friends are <strong>Mo the Mouse</strong> and <strong>Billy the Beetle</strong>.</p>
+					<p>I live in an underground burrow in the woodlands. And if there's one thing you should know about me, I <strong>love</strong> to dig tunnels!</p>
+				</section>
+				<section>
+					<h2>My Favorite Foods</h2>
+					<ol>
+						<li>Radishes</li>
+						<li>Earthworms</li>
+						<li>Shrubs</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Things I Like To Do</h2>
+					<ul>
+						<li>Burrow tunnels</li>
+						<li>Scavenge for plant roots</li>
+						<li>Play peekaboo</li>
+					</ul>
+				</section>
+			</main>
+			<footer>
+				<p>Copyright © 2016 Peter the Gopher. All rights reserved.</p>
+			</footer>
+		</body>
+	</html>
+
+---
+
+Day 1: Review
+
+Webpages are written in HTML, which stands for `      `.
+
+`      ` are the building blocks of webpages and are made of a(n) `      ` tag and a(n) `      ` tag.
+
+An element that contains other elements is called a `      ` element, and the elements inside are called `      ` elements.
+
+The `<    >` element is the root of the HTML document and contains all other elements.
+
+Important information about the webpage is stored in the `<    >`, while visible content is stored in the `<    >`.
+
+Most webpages are made up of three areas: `<    >`, `<    >`, and `<    >`.
+
+Related content can be grouped into `<    >`s.
+
+`<    >` is the biggest, most important heading element, while `<    >` is the smallest and least important.
+
+`<    >` elements have margins on the top and bottom.
+
+Text inside of a(n) `<    >` has an italic font style, while text inside of a(n) `<    >` has a bold font weight.
+
+The two list elements are `<    >` and `<    >`.
+
+---
+
+Work Time
+
+Use the remainder of class to work on adding content to your webpage.
+
+Remember - HTML provides the framework of our webpage. It's a skeleton, which means it doesn't look very pretty. So for now, don't worry too much about how your webpage looks - we'll learn how to style our webpages to make them look prettier tomorrow!
+
+{{
+*Ideas*
+
+- Add more `<sections>`!
+- If one of your sections are getting long, break it up and use `<h3>`s to add subtitles!
+- Find places you can add emphasis to.
+}}
+
+If you feel satisfied with your work for today, try visiting some websites on the Internet. Use the *element inspector* (Command+Alt+I) and see how they structure their webpages! What sorts of HTML tags do they use for different areas?
+
+---
+
+Day 1: Homework
+
+{{
+Find images, videos, writings, etc. that you could use to enhance the content on your website.
+}}
+
+---
+
+@Day 2: Styling Webpages
+CSS rules, attributes, classes and IDs[[Who made changes to their webpage while we were gone? Who would like to share?]]
+
+While *HTML* defines the structure and content of a webpage, CSS defines how the webpage looks.[[HTML = framework of a house, how many floors, rooms, what furniture is in the house; CSS = what color paint on the walls, type of carpet, where all the furniture is placed]]
+CSS stands for *Cascading Style Sheets*.
+We will learn the most recent CSS standard, CSS 3.
+
+---
+
+Intro to CSS
+
+CSS works through a set of *rules*. Each rule targets a certain set of HTML elements in order to make their declarations apply.
+
+CSS rules are placed in the `<style>` element, which goes in the `<head>`.
+This means that everything we write between the `<style>` and `</style>` tags is *not HTML*, but *CSS*!
+
+{{Let's write some CSS! Start by placing a `<style>` tag inside the `<head>`.}}
+
+
+2	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+			<style>
+				
+			</style>
+		</head>
+		<body>
+			<header>
+				<h1>The Webpage of Peter the Gopher</h1>
+				<p>Don't whack me - I ain't no mole.</p>
+			</header>
+			<main>
+				<section>
+					<h2>Who Am I?</h2>
+					<p>My name is <strong>Peter the Gopher</strong>. I am a western pocket gopher, also known as <em>thomomys mazama</em>.</p>
+					<p>I was born to <strong>Doug the Gopher</strong> and <strong>Tina the Gopher</strong>. I also have <strong>three siblings</strong> and <strong>eleven cousins</strong>. My best friends are <strong>Mo the Mouse</strong> and <strong>Billy the Beetle</strong>.</p>
+					<p>I live in an underground burrow in the woodlands. And if there's one thing you should know about me, I <strong>love</strong> to dig tunnels!</p>
+				</section>
+				<section>
+					<h2>My Favorite Foods</h2>
+					<ol>
+						<li>Radishes</li>
+						<li>Earthworms</li>
+						<li>Shrubs</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Things I Like To Do</h2>
+					<ul>
+						<li>Burrow tunnels</li>
+						<li>Scavenge for plant roots</li>
+						<li>Play peekaboo</li>
+					</ul>
+				</section>
+			</main>
+			<footer>
+				<p>Copyright © 2016 Peter the Gopher. All rights reserved.</p>
+			</footer>
+		</body>
+	</html>
+
+---
+
+Structure of a CSS Rule
+
+A CSS rule consists of a *selector* and a *declaration block*, which contains one or more *declarations*.
+```h2 {
+	color: orange;
+	text-align: center;
+}```
+
+The *selector* is a description of all the elements that the rule *targets*, or applies to.
+The selector `h2` is an *element selector*. The *target elements* of this selector are all the `<h2>`s on the page.
+
+A *CSS property* defines one aspect of how an element is displayed on a webpage. There are over 300 CSS properties that you could change!
+
+Each declaration consists of a *property* and a *value*.
+In the declaration `color: orange;`, the `color` property is set to a value of `orange`. This turns the text color of all `<h2>`s to orange.
+
+All CSS properties have a *default value*, or values that already apply to an element until we change the value, or *override* it.
+
+---
+
+Text Alignment
+
+The `text-align` property controls how text is aligned. Its value can be one of four possible *keywords*:
+`start` `center` `end` `justify`
+
+The default value of the `text-align` property is `start`. Because we _start_ at the left side when reading English, this makes all the text left-aligned.
+
+{{
+1. Write three rules for each of the three main areas - `<header>`, `<main>`, and `<footer>`.
+2. For each rule, add a declaration for the `text-align` property.
+3. *Override* the default value - set it to a new one!
+
+Experiment with all the possible values and see what you like best! If you like the default best, there is no need to write a rule to override it.
+}}
+
+
+	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+			<style>
+				header {
+					text-align: center;
+				}
+				main {
+					text-align: justify;
+				}
+				footer {
+					text-align: center;
+				}
+			</style>
+		</head>
+		<body>
+			<header>
+				<h1>The Webpage of Peter the Gopher</h1>
+			</header>
+			<main>
+				<section>
+					<h2>Who Am I?</h2>
+					<p>My name is <strong>Peter the Gopher</strong>. I am a western pocket gopher, also known as <em>thomomys mazama</em>.</p>
+					<p>I was born to <strong>Doug the Gopher</strong> and <strong>Tina the Gopher</strong>. I also have <strong>three siblings</strong> and <strong>eleven cousins</strong>. My best friends are <strong>Mo the Mouse</strong> and <strong>Billy the Beetle</strong>.</p>
+					<p>I live in an underground burrow in the woodlands. And if there's one thing you should know about me, I <strong>love</strong> to dig tunnels!</p>
+				</section>
+				<section>
+					<h2>My Favorite Foods</h2>
+					<ol>
+						<li>Radishes</li>
+						<li>Earthworms</li>
+						<li>Shrubs</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Things I Like To Do</h2>
+					<ul>
+						<li>Burrow tunnels</li>
+						<li>Scavenge for plant roots</li>
+						<li>Play peekaboo</li>
+					</ul>
+				</section>
+			</main>
+			<footer>
+				<p>Copyright © 2016 Peter the Gopher. All rights reserved.</p>
+			</footer>
+		</body>
+	</html>
+
+---
+
+Make Your Webpage Colorful
+
+The `background-color` property sets the background color of a element.
+The `color` property sets the text color of a element.
+
+Here are some color values you can use with these two properties:
+
+{{
+*[Color Names](http://www.w3schools.com/colors/colors_names.asp)*
+`white` `black` `orange` `cyan` `forestgreen`
+
+*Hexadecimal*
+`#fff` `#000` `#FFA500` `#00FFFF` `#228B22`
+
+*RGB*
+`rgb(255, 255, 255)` `rgb(0, 0, 0)` `rgb(255, 165, 0)` `rgb(0, 255, 255)` `rgb(34, 139, 34)`
+
+*RGB With Opacity*
+`rgba(255, 255, 255, 1.0)` `rgba(255, 255, 255, 0.5)` `rgba(255, 255, 255, 0)`
+
+Use a [color picker](http://htmlcolorcodes.com/color-picker/) to help you find the shade you want.
+}}
+
+
+{{
+Let's add some color to our page!
+
+1. Write a rule with a selector that targets the `<body>` element.
+2. Inside of the declaration block, add a declaration with the property `background-color`. Set the property to a color value of your choice!
+3. Add another declaration for the `color` property. Choose a text color that contrasts well with the background.
+}}
+
+
+{{Now, follow the same steps and give the header and footer areas some special colors of their own! You may add the rule you wrote for it earlier.}}
+
+
+2	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+			<style>
+				body {
+					background-color: PaleGoldenRod;
+					color: #634423;
+				}
+				header {
+					background-color: SandyBrown;
+					color: rgb(181, 53, 0);
+					text-align: center;
+				}
+				main {
+					text-align: justify;
+				}
+				footer {
+					background-color: #F9F498;
+					text-align: center;
+				}
+			</style>
+		</head>
+		<body>
+			<header>
+				<h1>The Webpage of Peter the Gopher</h1>
+				<p>Don't whack me - I ain't no mole.</p>
+			</header>
+			<main>
+				<section>
+					<h2>Who Am I?</h2>
+					<p>My name is <strong>Peter the Gopher</strong>. I am a western pocket gopher, also known as <em>thomomys mazama</em>.</p>
+					<p>I was born to <strong>Doug the Gopher</strong> and <strong>Tina the Gopher</strong>. I also have <strong>three siblings</strong> and <strong>eleven cousins</strong>. My best friends are <strong>Mo the Mouse</strong> and <strong>Billy the Beetle</strong>.</p>
+					<p>I live in an underground burrow in the woodlands. And if there's one thing you should know about me, I <strong>love</strong> to dig tunnels!</p>
+				</section>
+				<section>
+					<h2>My Favorite Foods</h2>
+					<ol>
+						<li>Radishes</li>
+						<li>Earthworms</li>
+						<li>Shrubs</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Things I Like To Do</h2>
+					<ul>
+						<li>Burrow tunnels</li>
+						<li>Scavenge for plant roots</li>
+						<li>Play peekaboo</li>
+					</ul>
+				</section>
+			</main>
+			<footer>
+				<p>Copyright © 2016 Peter the Gopher. All rights reserved.</p>
+			</footer>
+		</body>
+	</html>
+
+---
+
+Font Families
+
+*Font families* give character to our webpage. Here are some font families:
+
+{{<< <span style="font-size: 2rem"><span style="font-family: Arial">Arial</span> | <span style="font-family: Garamond">Garamond</span> | <span style="font-family: Georgia">Georgia</span> | <span style="font-family: Tahoma">Tahoma</span> | <span style="font-family: Trebuchet MS">Trebuchet MS</span> | <span style="font-family: Times New Roman">Times New Roman</span> | <span style="font-family: Verdana">Verdana</span></span> >>}}
+
+
+To set the a font family of an element, use the `font-family` property:
+```h1 {
+	font-family: "Georgia";
+}```
+
+Note that the name of the font is surrounded by quotation marks.
+
+Sometimes, a font you want to use isn't installed on every computer. To be safe, we can define a list of *fallback fonts*.
+```h1 {
+	font-family: "Georgia", "Times New Roman", sans-serif;
+}```
+
+For the last fallback font, we can use a *generic font family*. Your computer's operating system will decide which font that is installed will best fit that family. Here are some generic font families:
+
+{{<< <span style="font-size: 2rem"><span style="font-family: serif">serif</span> | <span style="font-family: sans-serif">sans-serif</span> | <span style="font-family: monospace">monospace</span></span> >>}}
+
+Since generic font families are CSS *keywords*, they do not have quotation marks around them.
+
+---
+
+Choose Your Typography!
+
+{{
+Let's choose some font families for our webpage!
+
+1. Choose a font for your body text. Add a `font-family` declaration to your `body` rule.
+
+2. Add a rule that selects all `<h2>`s on the page, and choose a different font for your section headings!
+
+You may also find fonts from [Google Fonts](https://google.com/fonts).
+}}
+
+
+	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+			<link href='https://fonts.googleapis.com/css?family=Bubblegum+Sans|PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+			<style>
+				body {
+					background-color: PaleGoldenRod;
+					font-family: "PT Sans", "Trebuchet MS", sans-serif;
+					color: #634423;
+				}
+				header {
+					background-color: SandyBrown;
+					color: #B53500;
+					text-align: center;
+				}
+				main {
+					text-align: justify;
+				}
+				footer {
+					background-color: #F9F498;
+					text-align: center;
+				}
+				h1 {
+					font-family: "Bubblegum Sans", "Trebuchet MS", sans-serif;
+				}
+				h2 {
+					font-family: "Bubblegum Sans", "Trebuchet MS", sans-serif;
+				}
+			</style>
+		</head>
+		<body>
+			<header>
+				<h1>The Webpage of Peter the Gopher</h1>
+				<p>Don't whack me - I ain't no mole.</p>
+			</header>
+			<main>
+				<section>
+					<h2>Who Am I?</h2>
+					<p>My name is <strong>Peter the Gopher</strong>. I am a western pocket gopher, also known as <em>thomomys mazama</em>.</p>
+					<p>I was born to <strong>Doug the Gopher</strong> and <strong>Tina the Gopher</strong>. I also have <strong>three siblings</strong> and <strong>eleven cousins</strong>. My best friends are <strong>Mo the Mouse</strong> and <strong>Billy the Beetle</strong>.</p>
+					<p>I live in an underground burrow in the woodlands. And if there's one thing you should know about me, I <strong>love</strong> to dig tunnels!</p>
+				</section>
+				<section>
+					<h2>My Favorite Foods</h2>
+					<ol>
+						<li>Radishes</li>
+						<li>Earthworms</li>
+						<li>Shrubs</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Things I Like To Do</h2>
+					<ul>
+						<li>Burrow tunnels</li>
+						<li>Scavenge for plant roots</li>
+						<li>Play peekaboo</li>
+					</ul>
+				</section>
+			</main>
+			<footer>
+				<p>Copyright © 2016 Peter the Gopher. All rights reserved.</p>
+			</footer>
+		</body>
+	</html>
+
+---
+
+Cleaning Up Our HTML and CSS Markup
+
+---
+
+Targeting Multiple Element Types At Once
+
+To target multiple types of elements in the same rule, separate multiple element selectors with commas.
+
+```h1, h2 {
+	
+}```
+
+{{Your `<h1>` and `<h2>` rules should be identical. Combine them into one!}}
+
+
+	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+			<link href='https://fonts.googleapis.com/css?family=Bubblegum+Sans|PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+			<style>
+				body {
+					background-color: PaleGoldenRod;
+					font-family: "PT Sans", "Trebuchet MS", sans-serif;
+					color: #634423;
+				}
+				header {
+					background-color: SandyBrown;
+					color: #B53500;
+					text-align: center;
+				}
+				main {
+					text-align: justify;
+				}
+				footer {
+					background-color: #F9F498;
+					text-align: center;
+				}
+				h1, h2 {
+					font-family: "Bubblegum Sans", "Trebuchet MS", sans-serif;
+				}
+			</style>
+		</head>
+		<body>
+			<header>
+				<h1>The Webpage of Peter the Gopher</h1>
+				<p>Don't whack me - I ain't no mole.</p>
+			</header>
+			<main>
+				<section>
+					<h2>Who Am I?</h2>
+					<p>My name is <strong>Peter the Gopher</strong>. I am a western pocket gopher, also known as <em>thomomys mazama</em>.</p>
+					<p>I was born to <strong>Doug the Gopher</strong> and <strong>Tina the Gopher</strong>. I also have <strong>three siblings</strong> and <strong>eleven cousins</strong>. My best friends are <strong>Mo the Mouse</strong> and <strong>Billy the Beetle</strong>.</p>
+					<p>I live in an underground burrow in the woodlands. And if there's one thing you should know about me, I <strong>love</strong> to dig tunnels!</p>
+				</section>
+				<section>
+					<h2>My Favorite Foods</h2>
+					<ol>
+						<li>Radishes</li>
+						<li>Earthworms</li>
+						<li>Shrubs</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Things I Like To Do</h2>
+					<ul>
+						<li>Burrow tunnels</li>
+						<li>Scavenge for plant roots</li>
+						<li>Play peekaboo</li>
+					</ul>
+				</section>
+			</main>
+			<footer>
+				<p>Copyright © 2016 Peter the Gopher. All rights reserved.</p>
+			</footer>
+		</body>
+	</html>
+
+---
+
+Font Sizes and Line Heights
+
+The `font-size` property allows you to change the size of text on your webpage. Font-size values are specified with a number followed by a *unit*. The most common unit is the *pixel* (`px`).
+
+```h1 {
+	font-size: 20px;
+}```
+
+{{
+Set the `font-size` of the `<body>` element.
+
+Next, set the font-size property of the `<h1>` and `<h2>` elements. Keep these rules separate from the combined rule you made earlier.
+}}
+
+The `line-height` property allows you to change the amount of space between lines of text. The best way to specify line height values is with a number without units:
+```h1 {
+	line-height: 2;
+}```
+
+A value of `1` corresponds to "single-spacing", a value of `2` corresponds to "double-spacing", and so on.
+
+{{In the same rule, set the `line-height` of all `<p>`, `<ol>`, `<ul>` elements.}}
+
+
+	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+			<link href='https://fonts.googleapis.com/css?family=Bubblegum+Sans|PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+			<style>
+				body {
+					background-color: PaleGoldenRod;
+					color: #634423;
+					font-family: "PT Sans", "Trebuchet MS", sans-serif;
+					font-size: 20px;
+				}
+				header {
+					background-color: SandyBrown;
+					color: #B53500;
+					text-align: center;
+				}
+				main {
+					text-align: justify;
+				}
+				footer {
+					background-color: #F9F498;
+					text-align: center;
+				}
+				h1, h2 {
+					font-family: "Bubblegum Sans", "Trebuchet MS", sans-serif;
+				}
+				h1 {
+					font-size: 40px;
+				}
+				h2 {
+					font-size: 32px;
+				}
+				p, ol, ul {
+					line-height: 1.4;
+				}
+			</style>
+		</head>
+		<body>
+			<header>
+				<h1>The Webpage of Peter the Gopher</h1>
+				<p>Don't whack me - I ain't no mole.</p>
+			</header>
+			<main>
+				<section>
+					<h2>Who Am I?</h2>
+					<p>My name is <strong>Peter the Gopher</strong>. I am a western pocket gopher, also known as <em>thomomys mazama</em>.</p>
+					<p>I was born to <strong>Doug the Gopher</strong> and <strong>Tina the Gopher</strong>. I also have <strong>three siblings</strong> and <strong>eleven cousins</strong>. My best friends are <strong>Mo the Mouse</strong> and <strong>Billy the Beetle</strong>.</p>
+					<p>I live in an underground burrow in the woodlands. And if there's one thing you should know about me, I <strong>love</strong> to dig tunnels!</p>
+				</section>
+				<section>
+					<h2>My Favorite Foods</h2>
+					<ol>
+						<li>Radishes</li>
+						<li>Earthworms</li>
+						<li>Shrubs</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Things I Like To Do</h2>
+					<ul>
+						<li>Burrow tunnels</li>
+						<li>Scavenge for plant roots</li>
+						<li>Play peekaboo</li>
+					</ul>
+				</section>
+			</main>
+			<footer>
+				<p>Copyright © 2016 Peter the Gopher. All rights reserved.</p>
+			</footer>
+		</body>
+	</html>
+
+---
+
+CSS Units
+
+{{
+`px` - pixels on your screen
+
+`em` - the `font-size` of the element. If an element's `font-size` is `16px` and you use `2em` for another property, it will be equivalent to `32px`. 
+
+`%` - a percentage of another value - depends on the property
+}}
+
+---
+
+The Box Model
+
+Have you noticed? All HTML elements take the shape of *rectangular boxes*. An easy way to visualize this is to temporarily add a `background-color`.
+
+When styling the spacing of your webpage, keep the *box model* in mind - that is, where the edges of each box are. You'll have a much easier time with the next handful of properties we'll learn!
+
+---
+
+Padding and Margin
+
+An element's *margin* is the amount of empty space past the _outside_ edges of an element's box.
+An element's *padding* is the amount of empty space between the edges of an element's box and the content inside of it.
+
+All elements have margin and padding values for all four sides: left, right, top, and bottom.
+
+There are multiple ways to specify margin and padding:
+
+One value for all four sides:
+```section {
+	padding: 10px;
+}```
+
+One value for both top and bottom, then one value for left and right:
+```section {
+	padding: 10px 5px;
+}```
+
+Individual values - top, right, bottom, left
+```section {
+	padding: 10px 5px 15px 0;
+}```
+
+We can also have each side as four separate properties:
+```section {
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-bottom: 15px;
+	padding-left: 0;
+}```
+
+Note that if a value is 0, we can omit units such as `px`.
+
+{{
+*Some Things to Do*
+
+The default `margin` of the body is `5px` all around, making a white border around our page. Get rid of it by setting its `margin` to `0`.
+
+Notice how most of the text on your webpage is really close to the edges? Give some padding all the way around your header, footer, and main sections!
+
+By default, heading elements come with some `margin-top` and `margin-bottom`. Now that our `<section>`s have some padding of their own, we can remove the `margin-top` of our `<h2>`s.
+
+By default, the `margin-top` and `margin-bottom` of `<p>` elements are set to `1.0em`. Change how much space there is between paragraphs!
+}}
+
+
+	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+			<link href='https://fonts.googleapis.com/css?family=Bubblegum+Sans|PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+			<style>
+				body {
+					background-color: PaleGoldenRod;
+					color: #634423;
+					font-family: "PT Sans", "Trebuchet MS", sans-serif;
+					font-size: 20px;
+					margin: 0;
+				}
+				header {
+					background-color: SandyBrown;
+					color: #B53500;
+					text-align: center;
+				}
+				main {
+					text-align: justify;
+				}
+				section {
+					background-color: #F9F498;
+				}
+				footer {
+					background-color: #F9F498;
+					text-align: center;
+				}
+				header, section, footer {
+					padding: 30px;
+				}
+				h1, h2 {
+					font-family: "Bubblegum Sans", "Trebuchet MS", sans-serif;
+				}
+				h1 {
+					font-size: 40px;
+				}
+				h2 {
+					font-size: 32px;
+					margin-top: 0;
+				}
+				p, ul, ol {
+					line-height: 1.4;
+				}
+				p {
+					margin: 0.8em 0;
+				}
+			</style>
+		</head>
+		<body>
+			<header>
+				<h1>The Webpage of Peter the Gopher</h1>
+				<p>Don't whack me - I ain't no mole.</p>
+			</header>
+			<main>
+				<section>
+					<h2>Who Am I?</h2>
+					<p>My name is <strong>Peter the Gopher</strong>. I am a western pocket gopher, also known as <em>thomomys mazama</em>.</p>
+					<p>I was born to <strong>Doug the Gopher</strong> and <strong>Tina the Gopher</strong>. I also have <strong>three siblings</strong> and <strong>eleven cousins</strong>. My best friends are <strong>Mo the Mouse</strong> and <strong>Billy the Beetle</strong>.</p>
+					<p>I live in an underground burrow in the woodlands. And if there's one thing you should know about me, I <strong>love</strong> to dig tunnels!</p>
+				</section>
+				<section>
+					<h2>My Favorite Foods</h2>
+					<ol>
+						<li>Radishes</li>
+						<li>Earthworms</li>
+						<li>Shrubs</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Things I Like To Do</h2>
+					<ul>
+						<li>Burrow tunnels</li>
+						<li>Scavenge for plant roots</li>
+						<li>Play peekaboo</li>
+					</ul>
+				</section>
+			</main>
+			<footer>
+				<p>Copyright © 2016 Peter the Gopher. All rights reserved.</p>
+			</footer>
+		</body>
+	</html>
+
+---
+
+Borders
+
+All elements have a *border* around their edges. By default, they are invisible, because their `border-style` property is `none`.
+
+Here are a few possible `border-style`s:
+`none` `solid` `dashed` `dotted` `double`
+
+The thickness of the border can be set with the `border-width` property.
+`border-width: 8px;`
+
+By default, an element's border color will match the text color, as set by the `color` property. You can override this by setting `border-color`:
+`border-color: #E29555;`
+
+To set any three of these properties for just one side of an element, simply add the direction name after the word `border-`.
+`border-bottom-style: dashed;` `border-bottom-width: 4px;` `border-bottom-color: #B8A966;`
+
+Finally, you can set any combination of these properties all at once with the `border` property:
+`border: 8px solid #E29555;`
+`border-bottom: 4px dashed #B8A966;`
+
+{{
+Add a border somewhere on your page! Some ideas for where to add a border:
+
+- All around the `<header>`
+- At the bottom of every `<section>`
+
+}}
+
+
+	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+			<link href='https://fonts.googleapis.com/css?family=Bubblegum+Sans|PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+			<style>
+				body {
+					background-color: PaleGoldenRod;
+					color: #634423;
+					font-family: "PT Sans", "Trebuchet MS", sans-serif;
+					font-size: 20px;
+					margin: 0;
+				}
+				header {
+					background-color: SandyBrown;
+					border-style: solid;
+					border-width: 8px;
+					border-color: #E29555;
+					color: #B53500;
+					text-align: center;
+				}
+				main {
+					text-align: justify;
+				}
+				section {
+					background-color: #F9F498;
+					border-bottom: 4px dashed #B8A966;
+				}
+				footer {
+					background-color: #F9F498;
+					text-align: center;
+				}
+				header, section, footer {
+					padding: 30px;
+				}
+				h1, h2 {
+					font-family: "Bubblegum Sans", "Trebuchet MS", sans-serif;
+				}
+				h1 {
+					font-size: 40px;
+				}
+				h2 {
+					font-size: 32px;
+					margin-top: 0;
+				}
+				p, ul, ol {
+					line-height: 1.4;
+				}
+				p {
+					margin: 0.8em 0;
+				}
+			</style>
+		</head>
+		<body>
+			<header>
+				<h1>The Webpage of Peter the Gopher</h1>
+				<p id="tagline">Don't whack me - I ain't no mole.</p>
+			</header>
+			<main>
+				<section id="about-me">
+					<h2>Who Am I?</h2>
+					<p>My name is <strong>Peter the Gopher</strong>. I am a western pocket gopher, also known as <em>thomomys mazama</em>.</p>
+					<p>I was born to <strong>Doug the Gopher</strong> and <strong>Tina the Gopher</strong>. I also have <strong>three siblings</strong> and <strong>eleven cousins</strong>. My best friends are <strong>Mo the Mouse</strong> and <strong>Billy the Beetle</strong>.</p>
+					<p>I live in an underground burrow in the woodlands. And if there's one thing you should know about me, I <strong>love</strong> to dig tunnels!</p>
+				</section>
+				<section id="favorite-foods">
+					<h2>My Favorite Foods</h2>
+					<ol>
+						<li>Radishes</li>
+						<li>Earthworms</li>
+						<li>Shrubs</li>
+					</ol>
+				</section>
+				<section id="hobbies">
+					<h2>Things I Like To Do</h2>
+					<ul>
+						<li>Burrow tunnels</li>
+						<li>Scavenge for plant roots</li>
+						<li>Play peekaboo</li>
+					</ul>
+				</section>
+			</main>
+			<footer>
+				<p>Copyright © 2016 Peter the Gopher. All rights reserved.</p>
+			</footer>
+		</body>
+	</html>
+
+---
+
+Border Radius
+
+The `border-radius` property rounds the corners of an HTML element. Its value is the radius of the circle that is incorporated into the rectangle.
+
+```border-radius: 20px;```
+
+
+	<head>
+		<style>
+			div {
+				border-radius: 20px;
+				background: PaleGoldenRod;
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+
+---
+
+Border/Border Radius Practice
+
+```div {
+	width: 100px;
+	height: 100px;
+}```
+
+[Imitate!](http://css3pie.com/demos/border-radius/)
+[[body{color: transparent;}#tests div{width: 100px;height: 100px;}]]
+
+---
+
+Inheritance
+
+Some CSS properties only apply to the elements that are directly targeted by the selector.
+`background-color` `border` `border-radius` `margin` `padding`
+
+Other properties however, are *inherited*. This means that parent elements will pass the values of these properties to their children, unless it is *overridden* by another rule.
+`color` `font-family` `font-size` `text-align`
+
+---
+
+Block Elements vs. Inline Elements
+
+These elements are *block elements*...
+`<div>` `<p>` `<h1>` `<body>` `<ul>` `<ol>` `<header>` `<main>` `<footer>` `<section>` ...
+
+While these elements are *inline elements*.
+`<span>` `<em>` `<strong>`
+
+Block elements take up their own line. They also take up 100% of the width of their parent by default.
+
+Inline elements flow with the text like water.
+
+---
+
+Setting Dimensions of Block Elements
+
+Use the `width` and `height` properties
+
+---
+
+Bonus: Shadows
+
+*Text shadows* allow you to make text have an appearance of casting a shadow.
+
+`text-shadow: [color] [x] [y] [blur];`
+
+*Box shadows* work just like *text shadows*, except that the shadows are applied to the bounding box of the element that is targeted.
+
+`box-shadow: [color] [x] [y] [blur];`
+
+[Imitate!](http://www.w3schools.com/css/css3_shadows.asp)
+[[p{color: transparent !important}.w3-example{display: none;}]]
+
+---
+
+Bonus: Box Shadow
+
+---
+
+Bonus: Gradients
+
+[Imitate!](http://css3pie.com/demos/gradient-patterns/)
+
+---
+
+Day 2 Review
+
+CSS stands for `    `.
+
+CSS works through a set of `    `.
+
+A CSS rule consists of two main parts: a `    ` and a `    `.
+
+The declaration block contains one or more declarations, which consist of a `    ` and a `    `.
+
+Each CSS property affects one aspect of an element, and there are over `    ` of them.
+
+All elements have a default value for each of the CSS properties. When we change these properties in our CSS rules, this is called `    ` them.
+
+When defining font families, you need a list of `    ` in case a font is not installed or fails to load.
+
+All HTML elements take the shape of a `    `.
+
+Margin is `    `, while padding is `    `.
+
+Name at least four CSS property names and their possible values.
+
+What does it mean for a CSS property to be inherited? Which CSS properties are inherited, and which are not?
+
+---
+
+@Day 3
+Attributes, Classes and IDs, Links, images, external stylesheets, and advanced CSS properties
+
+---
+
+HTML Attributes
+
+*HTML attributes* help provide extra information about an element, so that we can use that information to manipulate or refer to the element in some way.
+
+HTML attributes are written inside of the opening tag of an element. This `<section>` element has an attribute named `id`, and its value is `"about-me"`.
+
+`<section id="about-me">`
+
+Elements can have more than one attribute, but they must all be named differently.
+`<section id="about-me" class="about-me" data-gopher-reaction="Gophers are awesome!">`
+
+The most widely used convention for attribute names is to keep every word lowercase and separate each word with a hyphen (`-`).
+
+---
+
+Naming Special Elements With IDs
+
+Sometimes, we want to target only one element on the page, without affecting other elements with the same name. *ID* attributes are perfect for this job!
+
+`<section id="about-me">`
+
+When using IDs, make note of these rules and conventions:
+
+1. Elements can only have one ID.
+2. Two elements cannot share the same ID.
+3. Every word in an ID must be lowercase and word separated with a hyphen (`-`).
+
+{{
+1. Add an `tagline` ID to the paragraph in your header.
+2. Add an ID to each of your `<section>`s, depending on what each one is used for.
+
+Be sure to follow the rules!
+}}
+
+
+	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+			<link href='https://fonts.googleapis.com/css?family=Bubblegum+Sans|PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+			<style>
+				body {
+					background-color: PaleGoldenRod;
+					color: #634423;
+					font-family: "PT Sans", "Trebuchet MS", sans-serif;
+					font-size: 20px;
+					margin: 0;
+				}
+				header {
+					background-color: SandyBrown;
+					border-style: solid;
+					border-width: 8px;
+					border-color: #E29555;
+					color: #B53500;
+					text-align: center;
+				}
+				main {
+					text-align: justify;
+				}
+				section {
+					background-color: #F9F498;
+					border-bottom: 4px dashed #B8A966;
+				}
+				footer {
+					background-color: #F9F498;
+					text-align: center;
+				}
+				header, section, footer {
+					padding: 30px;
+				}
+				h1, h2 {
+					font-family: "Bubblegum Sans", "Trebuchet MS", sans-serif;
+				}
+				h1 {
+					font-size: 40px;
+				}
+				h2 {
+					font-size: 32px;
+					margin-top: 0;
+				}
+				p, ul, ol {
+					line-height: 1.4;
+				}
+				p {
+					margin: 0.8em 0;
+				}
+			</style>
+		</head>
+		<body>
+			<header>
+				<h1>The Webpage of Peter the Gopher</h1>
+				<p id="tagline">Don't whack me - I ain't no mole.</p>
+			</header>
+			<main>
+				<section id="about-me">
+					<h2>Who Am I?</h2>
+					<p>My name is <strong>Peter the Gopher</strong>. I am a western pocket gopher, also known as <em>thomomys mazama</em>.</p>
+					<p>I was born to <strong>Doug the Gopher</strong> and <strong>Tina the Gopher</strong>. I also have <strong>three siblings</strong> and <strong>eleven cousins</strong>. My best friends are <strong>Mo the Mouse</strong> and <strong>Billy the Beetle</strong>.</p>
+					<p>I live in an underground burrow in the woodlands. And if there's one thing you should know about me, I <strong>love</strong> to dig tunnels!</p>
+				</section>
+				<section id="favorite-foods">
+					<h2>My Favorite Foods</h2>
+					<ol>
+						<li>Radishes</li>
+						<li>Earthworms</li>
+						<li>Shrubs</li>
+					</ol>
+				</section>
+				<section id="hobbies">
+					<h2>Things I Like To Do</h2>
+					<ul>
+						<li>Burrow tunnels</li>
+						<li>Scavenge for plant roots</li>
+						<li>Play peekaboo</li>
+					</ul>
+				</section>
+			</main>
+			<footer>
+				<p>Copyright © 2016 Peter the Gopher. All rights reserved.</p>
+			</footer>
+		</body>
+	</html>
+
+---
+
+Targeting IDs in CSS
+
+Now tht we've assigned IDs to some of our elements, we can target each one individually with CSS!
+
+To do this, we will use a special selector: the *ID selector*.
+```#tagline {
+	font-size: 23px;
+}```
+
+{{Add a rule that targets your tagline. Style it however you want, using the properties we've learned so far!}}
+
+
+	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+			<link href='https://fonts.googleapis.com/css?family=Bubblegum+Sans|PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+			<style>
+				body {
+					background-color: PaleGoldenRod;
+					color: #634423;
+					font-family: "PT Sans", "Trebuchet MS", sans-serif;
+					font-size: 20px;
+					margin: 0;
+				}
+				header {
+					background-color: SandyBrown;
+					border-style: solid;
+					border-width: 8px;
+					border-color: #E29555;
+					color: #B53500;
+					text-align: center;
+				}
+				main {
+					text-align: justify;
+				}
+				section {
+					background-color: #F9F498;
+					border-bottom: 4px dashed #B8A966;
+				}
+				footer {
+					background-color: #F9F498;
+					text-align: center;
+				}
+				header, section, footer {
+					padding: 30px;
+				}
+				h1, h2 {
+					font-family: "Bubblegum Sans", "Trebuchet MS", sans-serif;
+				}
+				h1 {
+					font-size: 40px;
+				}
+				h2 {
+					font-size: 32px;
+					margin-top: 0;
+				}
+				p, ul, ol {
+					line-height: 1.4;
+				}
+				p {
+					margin: 0.8em 0;
+				}
+				
+				#tagline {
+					background: rgba(255, 255, 255, 0.2);
+					border-radius: 10px;
+					font-size: 23px;
+					padding: 10px;
+				}
+			</style>
+		</head>
+		<body>
+			<header>
+				<h1>The Webpage of Peter the Gopher</h1>
+				<p id="tagline">Don't whack me - I ain't no mole.</p>
+			</header>
+			<main>
+				<section id="about-me">
+					<h2>Who Am I?</h2>
+					<p>My name is <strong>Peter the Gopher</strong>. I am a western pocket gopher, also known as <em>thomomys mazama</em>.</p>
+					<p>I was born to <strong>Doug the Gopher</strong> and <strong>Tina the Gopher</strong>. I also have <strong>three siblings</strong> and <strong>eleven cousins</strong>. My best friends are <strong>Mo the Mouse</strong> and <strong>Billy the Beetle</strong>.</p>
+					<p>I live in an underground burrow in the woodlands. And if there's one thing you should know about me, I <strong>love</strong> to dig tunnels!</p>
+				</section>
+				<section id="favorite-foods">
+					<h2>My Favorite Foods</h2>
+					<ol>
+						<li>Radishes</li>
+						<li>Earthworms</li>
+						<li>Shrubs</li>
+					</ol>
+				</section>
+				<section id="hobbies">
+					<h2>Things I Like To Do</h2>
+					<ul>
+						<li>Burrow tunnels</li>
+						<li>Scavenge for plant roots</li>
+						<li>Play peekaboo</li>
+					</ul>
+				</section>
+			</main>
+			<footer>
+				<p>Copyright © 2016 Peter the Gopher. All rights reserved.</p>
+			</footer>
+		</body>
+	</html>
+
+---
+
+Naming Similar Elements With Classes
+
+Sometimes, we want to target multiple elements on the page that are similar. We can accomplish this with *class* attributes.
+
+`<strong class="family-member">`
+
+Unlike IDs, elements can have more than one class, and multiple elements can (and should) share similar classes.
+`<strong class="name family-member">`
+`<strong class="name friend">`
+
+We can use a *class selector* to target all elements with a certain class:
+```.name {
+	color: #fff;
+}```
+
+
+	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+			<link href='https://fonts.googleapis.com/css?family=Bubblegum+Sans|PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+			<style>
+				body {
+					background-color: PaleGoldenRod;
+					color: #634423;
+					font-family: "PT Sans", "Trebuchet MS", sans-serif;
+					font-size: 20px;
+					margin: 0;
+				}
+				header {
+					background-color: SandyBrown;
+					border-style: solid;
+					border-width: 8px;
+					border-color: #E29555;
+					color: #B53500;
+					text-align: center;
+				}
+				main {
+					text-align: justify;
+				}
+				section {
+					background-color: #F9F498;
+					border-bottom: 4px dashed #B8A966;
+				}
+				footer {
+					background-color: #F9F498;
+					text-align: center;
+				}
+				header, section, footer {
+					padding: 30px;
+				}
+				h1, h2 {
+					font-family: "Bubblegum Sans", "Trebuchet MS", sans-serif;
+				}
+				h1 {
+					font-size: 40px;
+				}
+				h2 {
+					font-size: 32px;
+					margin-top: 0;
+				}
+				p, ul, ol {
+					line-height: 1.4;
+				}
+				p {
+					margin: 0.8em 0;
+				}
+				
+				#tagline {
+					font-size: 20px;
+				}
+				
+				.name {
+					border-radius: 3px;
+					box-shadow: 0 1px 2px SandyBrown;
+					color: rgba(0, 0, 0, 0.8);
+				}
+				.family-member {
+					background-color: #F4F160;
+				}
+				.friend {
+					background-color: #FF9C9C;
+				}
+			</style>
+		</head>
+		<body>
+			<header>
+				<h1>The Webpage of Peter the Gopher</h1>
+				<p id="tagline">Don't whack me - I ain't no mole.</p>
+			</header>
+			<main>
+				<section id="about-me">
+					<h2>Who Am I?</h2>
+					<p>My name is <strong class="name family-member">Peter the Gopher</strong>. I am a western pocket gopher, also known as <em>thomomys mazama</em>.</p>
+					<p>I was born to <strong class="name family-member">Doug the Gopher</strong> and <strong class="name family-member">Tina the Gopher</strong>. I also have <strong class="name family-member">three siblings</strong> and <strong class="name family-member">eleven cousins</strong>. My best friends are <strong class="name friend">Mo the Mouse</strong> and <strong class="name friend">Billy the Beetle</strong>.</p>
+					<p>I live in an underground burrow in the woodlands. And if there's one thing you should know about me, I <strong>love</strong> to dig tunnels!</p>
+				</section>
+				<section id="favorite-foods">
+					<h2>My Favorite Foods</h2>
+					<ol>
+						<li>Radishes</li>
+						<li>Earthworms</li>
+						<li>Shrubs</li>
+					</ol>
+				</section>
+				<section id="hobbies">
+					<h2>Things I Like To Do</h2>
+					<ul>
+						<li>Burrow tunnels</li>
+						<li>Scavenge for plant roots</li>
+						<li>Play peekaboo</li>
+					</ul>
+				</section>
+			</main>
+			<footer>
+				<p>Copyright © 2016 Peter the Gopher. All rights reserved.</p>
+			</footer>
+		</body>
+	</html>
+
+---
+
+CSS Specificity
+
+The browser considers some selectors more *specific* than others. If more than one rule selects the same element, the rule with the least specific selector will be applied first. The rule with the most specific selector will be applied last.
+
+ID selectors will _always_ be more specific than class selectors. Class selectors will _always_ be more specific than element selectors.
+
+If two rules have the same *specificity*, the rule that comes later in the stylesheet will be applied last.
+
+Say we have this element:
+`<section id="about-me" class="content-section">`
+
+And we have these rules in our CSS:
+```section {
+	border-color: white;
+	border-width: 5px;
+}
+.content-section {
+	background-color: green;
+	color: green;
+}
+#about-me {
+	background-color: red;
+	border-color: red;
+}
+section, footer {
+	background-color: blue;
+	border-color: blue;
+	border-width: 10px;
+}```
+
+What is the `background-color`, `border-color`, `border-width`, and `color` of the element?
+
+---
+
+Advanced CSS Selectors
+
+CSS selectors can be combined in many ways. The more components you have, the more specific it becomes.
+
+You can have any combination of ID, class, or element selectors.
+```section#about-me {
+	
+}```
+
+The *descendant selector* (` `) selects all elements that are a descendant of a parent element.
+```p strong {
+	
+}```
+
+The *child selector* (`>`) selects all elements that are direct children of a parent element.
+```p > strong {
+	
+}```
+
+The *sibling selector* (`~`) selects all elements that are a future sibling of an element.
+```p ~ p {
+	
+}```
+
+The *direct sibling selector* (`+`) selects all elements that are an immediate sibling of an element.
+```p + p {
+	
+}```
+
+{{
+Find some CSS rules in your webpage that you could add other selectors to make them more specific or clarify what they are used for.
+}}
+
+---
+
+Hyperlinks
+
+Webpages have the advantage of allowing visitors to easily navigate to other webpages. We can do this with *hyperlinks*!
+`<a href="https://google.com">Google</a>`
+
+The `<a>` element stands for *anchor*. It has an attribute called `href`, which stands for *Hypertext Reference*. The value of the `href` attribute is a *URL* (Uniform Resource Locator), or the address of another webpage you wish to link to.
+
+If you click on text or other elements wrapped inside of an `<a>` element, the browser will leave your webpage and navigate to the webpage located at the URL in its `href` attribute.
+
+{{
+Add a link somewhere in your webpage! Some ideas:
+
+- Point your readers to a webpage that can teach them more about something you wrote about.
+- Make a section containing a list of the websites you use most often.
+}}
+
+---
+
+Images!
+
+We can insert an image with the `<img>` tag, where the value of the `src` attribute is the URL of the image file.
+`<img src="peter-the-gopher.jpg">`
+
+The image element is a type of *void element*, because it does not need a closing tag or contain content inside of it. As such, the opening tag of void elements are said to be *self-closing*.
+
+{{
+Let's add some images to our webpage!
+
+1. Navigate to your file browser. In the same folder as your `index.html` file, make a new folder called `images`.
+2. Move your image files into the `images` folder. As a good practice, make sure they are named with all lowercase letters and with hyphens (`-`) between words.
+3. Now, add `<img>` tags into your `<section>`s wherever they fit best! You can place them before the headings, or in between paragraphs!
+4. An example image URL: `images/peter-the-gopher.jpg`
+}}
+
+
+	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+			<link href='https://fonts.googleapis.com/css?family=Bubblegum+Sans|PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+			<style>
+				body {
+					background-color: PaleGoldenRod;
+					color: #634423;
+					font-family: "PT Sans", "Trebuchet MS", sans-serif;
+					font-size: 20px;
+					margin: 0;
+				}
+				header {
+					background-color: SandyBrown;
+					border-style: solid;
+					border-width: 8px;
+					border-color: #E29555;
+					color: #B53500;
+					text-align: center;
+				}
+				main {
+					text-align: justify;
+				}
+				section {
+					background-color: #F9F498;
+					border-bottom: 4px dashed #B8A966;
+				}
+				footer {
+					background-color: #F9F498;
+					text-align: center;
+				}
+				header, section, footer {
+					padding: 30px;
+				}
+				h1, h2 {
+					font-family: "Bubblegum Sans", "Trebuchet MS", sans-serif;
+				}
+				h1 {
+					font-size: 40px;
+				}
+				h2 {
+					font-size: 32px;
+					margin-top: 0;
+				}
+				p, ul, ol {
+					line-height: 1.4;
+				}
+				p {
+					margin: 0.8em 0;
+				}
+				
+				#tagline {
+					font-size: 20px;
+				}
+				
+				.name {
+					border-radius: 3px;
+					box-shadow: 0 1px 2px SandyBrown;
+					color: rgba(0, 0, 0, 0.8);
+				}
+				.family-member {
+					background-color: #F4F160;
+				}
+				.friend {
+					background-color: #FF9C9C;
+				}
+			</style>
+		</head>
+		<body>
+			<header>
+				<h1>The Webpage of Peter the Gopher</h1>
+				<p id="tagline">Don't whack me - I ain't no mole.</p>
+			</header>
+			<main>
+				<section id="about-me">
+					<h2>Who Am I?</h2>
+					<p>My name is <strong class="name family-member">Peter the Gopher</strong>. I am a <a href="https://en.wikipedia.org/Gopher_(animal)" target="_blank">western pocket gopher</a>, also known as <em>thomomys mazama</em>.</p>
+					<p>I was born to <strong class="name family-member">Doug the Gopher</strong> and <strong class="name family-member">Tina the Gopher</strong>. I also have <strong class="name family-member">three siblings</strong> and <strong class="name family-member">eleven cousins</strong>. My best friends are <strong class="name friend">Mo the Mouse</strong> and <strong class="name friend">Billy the Beetle</strong>.</p>
+					<p>I live in an underground burrow in the woodlands. And if there's one thing you should know about me, I <strong>love</strong> to dig tunnels!</p>
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Pocket_gopher.jpg/800px-Pocket_gopher.jpg">
+				</section>
+				<section id="favorite-foods">
+					<h2>My Favorite Foods</h2>
+					<ol>
+						<li>Radishes</li>
+						<li>Earthworms</li>
+						<li>Shrubs</li>
+					</ol>
+				</section>
+				<section id="hobbies">
+					<h2>Things I Like To Do</h2>
+					<ul>
+						<li>Burrow tunnels</li>
+						<li>Scavenge for plant roots</li>
+						<li>Play peekaboo</li>
+					</ul>
+				</section>
+			</main>
+			<footer>
+				<p>Copyright © 2016 Peter the Gopher. All rights reserved.</p>
+			</footer>
+		</body>
+	</html>
+
+---
+
+Providing More Information With Title and Alt Attributes
+
+The `title` attribute allows you to provide more contextual information about an element. It is most commonly used for links and images - namely, `<a>` and `<img>` elements. When you leave your cursor hovered over an element with a `title` attribute, a tooltip will appear containing the value of the attribute.
+
+`<a href="https://en.wikipedia.org/wiki/Gopher&#95;(animal)" title="Gopher (animal) - Wikipedia">thomomys mazama</a>`
+
+The `alt` attribute can be used to explain what an image is of, known as *alternate text*. If an image fails to load for any reason, such as a slow internet connection, the value of this attribute will be displayed instead.
+
+`<img src="gopher.jpg" alt="Peter the Gopher peeking out of a hole.">`
+
+Alternate text is helpful for accessibility reasons - for example, the browser can read the alternate text in order to describe the image to a blind visitor.
+
+---
+
+@Day 4
+Internal Hyperlinks, Nav Bar, Documentation, Work Time
+
+---
+
+Internal Hyperlinks
+
+Some hyperlinks allow you navigate to areas of the same webpage. Instead of a regular URL, set the `href` attribute to a hash symbol and the ID of the element you want to navigate to.
+
+When you click on the following link:
+`<a href="#hobbies">Read more about what I love to do in my spare time!</a>`
+
+The browser will scroll the webpage to make this element visible!
+`<section id="hobbies">`
+
+{{Find a place in your webpage where you may want to reference another section. Add an internal hyperlink.}}
+
+---
+
+Adding a Navigation Bar
+
+Now that you know how to create links on your webpage, let's make a navigation bar at the top.
+
+The `<nav>` element is used for a set of links for the purpose of navigation.
+
+Inside of the `<nav>`, is an unordered list, because the navigation is esentially a list of links.
+
+Finally inside of each `<li>`, insert an anchor element with the appropritate text.
+
+{{
+Make a navigation bar. Place it inside of your `<header>`. For each of your sections, add a list item containing an internal link that navigates to that section.
+}}
+
+```<nav>
+	<ul>
+		<li><a href="#about-me">About Me</a></li>
+		<li><a href="#favorite-foods">My Favorite Foods</a></li>
+		<li><a href="#hobbies">Hobbies</a></li>
+	</ul>
+</nav>```
+
+
+	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+			<link href='https://fonts.googleapis.com/css?family=Bubblegum+Sans|PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+			<style>
+				body {
+					background-color: PaleGoldenRod;
+					color: #634423;
+					font-family: "PT Sans", "Trebuchet MS", sans-serif;
+					font-size: 20px;
+					margin: 0;
+				}
+				header {
+					background-color: SandyBrown;
+					border-style: solid;
+					border-width: 8px;
+					border-color: #E29555;
+					color: #B53500;
+					text-align: center;
+				}
+				main {
+					text-align: justify;
+				}
+				section {
+					background-color: #F9F498;
+					border-bottom: 4px dashed #B8A966;
+				}
+				footer {
+					background-color: #F9F498;
+					text-align: center;
+				}
+				header, section, footer {
+					padding: 30px;
+				}
+				h1, h2 {
+					font-family: "Bubblegum Sans", "Trebuchet MS", sans-serif;
+				}
+				h1 {
+					font-size: 40px;
+				}
+				h2 {
+					font-size: 32px;
+					margin-top: 0;
+				}
+				p, ul, ol {
+					line-height: 1.4;
+				}
+				p {
+					margin: 0.8em 0;
+				}
+				
+				#tagline {
+					font-size: 20px;
+				}
+				
+				.name {
+					border-radius: 3px;
+					box-shadow: 0 1px 2px SandyBrown;
+					color: rgba(0, 0, 0, 0.8);
+				}
+				.family-member {
+					background-color: #F4F160;
+				}
+				.friend {
+					background-color: #FF9C9C;
+				}
+			</style>
+		</head>
+		<body>
+			<header>
+				<h1>The Webpage of Peter the Gopher</h1>
+				<p id="tagline">Don't whack me - I ain't no mole.</p>
+				<nav>
+					<ul>
+						<li><a href="#about-me">About Me</a></li>
+						<li><a href="#favorite-foods">My Favorite Foods</a></li>
+						<li><a href="#hobbies">Hobbies</a></li>
+					</ul>
+				</nav>
+			</header>
+			<main>
+				<section id="about-me">
+					<h2>Who Am I?</h2>
+					<p>My name is <strong class="name family-member">Peter the Gopher</strong>. I am a <a href="https://en.wikipedia.org/Gopher_(animal)" target="_blank">western pocket gopher</a>, also known as <em>thomomys mazama</em>.</p>
+					<p>I was born to <strong class="name family-member">Doug the Gopher</strong> and <strong class="name family-member">Tina the Gopher</strong>. I also have <strong class="name family-member">three siblings</strong> and <strong class="name family-member">eleven cousins</strong>. My best friends are <strong class="name friend">Mo the Mouse</strong> and <strong class="name friend">Billy the Beetle</strong>.</p>
+					<p>I live in an underground burrow in the woodlands. And if there's one thing you should know about me, I <strong>love</strong> to dig tunnels!</p>
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Pocket_gopher.jpg/800px-Pocket_gopher.jpg">
+				</section>
+				<section id="favorite-foods">
+					<h2>My Favorite Foods</h2>
+					<ol>
+						<li>Radishes</li>
+						<li>Earthworms</li>
+						<li>Shrubs</li>
+					</ol>
+				</section>
+				<section id="hobbies">
+					<h2>Things I Like To Do</h2>
+					<ul>
+						<li>Burrow tunnels</li>
+						<li>Scavenge for plant roots</li>
+						<li>Play peekaboo</li>
+					</ul>
+				</section>
+			</main>
+			<footer>
+				<p>Copyright © 2016 Peter the Gopher. All rights reserved.</p>
+			</footer>
+		</body>
+	</html>
+
+---
+
+Styling the Navigation Bar
+
+
+	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+			<link href='https://fonts.googleapis.com/css?family=Bubblegum+Sans|PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+			<style>
+				body {
+					background-color: PaleGoldenRod;
+					color: #634423;
+					font-family: "PT Sans", "Trebuchet MS", sans-serif;
+					font-size: 20px;
+					margin: 0;
+				}
+				header {
+					background-color: SandyBrown;
+					border-style: solid;
+					border-width: 8px;
+					border-color: #E29555;
+					color: #B53500;
+					text-align: center;
+				}
+				main {
+					text-align: justify;
+				}
+				section {
+					background-color: #F9F498;
+					border-bottom: 4px dashed #B8A966;
+				}
+				footer {
+					background-color: #F9F498;
+					text-align: center;
+				}
+				header, section, footer {
+					padding: 30px;
+				}
+				h1, h2 {
+					font-family: "Bubblegum Sans", "Trebuchet MS", sans-serif;
+				}
+				h1 {
+					font-size: 40px;
+				}
+				h2 {
+					font-size: 32px;
+					margin-top: 0;
+				}
+				p, ul, ol {
+					line-height: 1.4;
+				}
+				p {
+					margin: 0.8em 0;
+				}
+				
+				#tagline {
+					font-size: 20px;
+				}
+				
+				.name {
+					border-radius: 3px;
+					box-shadow: 0 1px 2px SandyBrown;
+					color: rgba(0, 0, 0, 0.8);
+				}
+				.family-member {
+					background-color: #F4F160;
+				}
+				.friend {
+					background-color: #FF9C9C;
+				}
+				
+				nav ul {
+					list-style-type: none;
+				}
+				nav ul li {
+					display: inline-block;
+				}
+				nav ul li a {
+					background-color: rgba(255, 255, 255, 0.5);
+					color: #B55555;
+					padding: 4px 10px;
+					text-decoration: none;
+				}
+			</style>
+		</head>
+		<body>
+			<header>
+				<h1>The Webpage of Peter the Gopher</h1>
+				<p id="tagline">Don't whack me - I ain't no mole.</p>
+				<nav>
+					<ul>
+						<li><a href="#about-me">About Me</a></li>
+						<li><a href="#favorite-foods">My Favorite Foods</a></li>
+						<li><a href="#hobbies">Hobbies</a></li>
+					</ul>
+				</nav>
+			</header>
+			<main>
+				<section id="about-me">
+					<h2>Who Am I?</h2>
+					<p>My name is <strong class="name family-member">Peter the Gopher</strong>. I am a <a href="https://en.wikipedia.org/Gopher_(animal)" target="_blank">western pocket gopher</a>, also known as <em>thomomys mazama</em>.</p>
+					<p>I was born to <strong class="name family-member">Doug the Gopher</strong> and <strong class="name family-member">Tina the Gopher</strong>. I also have <strong class="name family-member">three siblings</strong> and <strong class="name family-member">eleven cousins</strong>. My best friends are <strong class="name friend">Mo the Mouse</strong> and <strong class="name friend">Billy the Beetle</strong>.</p>
+					<p>I live in an underground burrow in the woodlands. And if there's one thing you should know about me, I <strong>love</strong> to dig tunnels!</p>
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Pocket_gopher.jpg/800px-Pocket_gopher.jpg">
+				</section>
+				<section id="favorite-foods">
+					<h2>My Favorite Foods</h2>
+					<ol>
+						<li>Radishes</li>
+						<li>Earthworms</li>
+						<li>Shrubs</li>
+					</ol>
+				</section>
+				<section id="hobbies">
+					<h2>Things I Like To Do</h2>
+					<ul>
+						<li>Burrow tunnels</li>
+						<li>Scavenge for plant roots</li>
+						<li>Play peekaboo</li>
+					</ul>
+				</section>
+			</main>
+			<footer>
+				<p>Copyright © 2016 Peter the Gopher. All rights reserved.</p>
+			</footer>
+		</body>
+	</html>
+
+---
+
+The `:hover` Pseudoclass
+
+Add `:hover` to any selector to make a CSS rule apply only when the mouse is hovered over an element.
+```a:hover {
+	color: green;
+}```
+
+`:hover` is an example of a *pseudoclass*. It is different from a regular class in that they represent a special state of an element.
+
+---
+
+Transitioning Hovered Elements
+
+The `transition` property allows you animate certain properties of CSS elements when they change state.
+
+To use it, set its value to the name of the property you wish to animate, and a duration in seconds (`s`).
+
+```a {
+	color: blue;
+	transition: color 0.3s;
+}
+a:hover {
+	color: green;
+}```
+
+To animate multiple properties at once, separate each one with a comma:
+```a {
+	background-color: black;
+	color: blue;
+	transition: color 0.3s, background-color 1s;
+}
+a:hover {
+	background-color: white;
+	color: green;
+}```
+
+To animate every single possible property, use the `all` keyword:
+```a {
+	transition: all 0.3s;
+}```
+
+---
+
+Review Activity: Make a Button!
+
+{{
+1. Make a new webpage. Add a doctype declaration, and the `<html>`, `<head>`, and `<body>` elements.
+2. Add a `<button>` element to the body.
+3. Add a `&lt;style>` element. Write a rule that targets the button.
+4. Use as many CSS properties as you can to make the button look like a button!
+}}
+
+---
+
+Using the Documentation and Performing Research
+
+Computer languages
+
+If you ever need more information about how certain aspects of HTML or CSS works, the *documentation* on the Mozilla.org Developer Network is a great place to look.
+[HTML Reference](https://developer.mozilla.org/en-US/docs/web/html/reference) | [CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
+
+{{
+Look through the HTML and CSS documentations. Find some of the HTML tags/CSS properties we learned about
+}}
+
+Chances are you have a question that others have asked before and others have answered. You can also type your question directly into Google, and Google will help you find a page that may have the answer you're looking for.
+
+{{
+Take a moment to come up with two insightful questions about something we learned about in this class. Be very specific about your question, and go beyond the obvious!
+
+Once you've checked in with me, do some research on your questions. Search on [Google](https://google.com) or [StackOverflow](https://stackoverflow.com) and report at least three new things you learned.
+
+Finally, see if you can find a way to incorporate your findings into your website.
+}}
+
+---
+
+Work Time
+
+{{Use the rest of today to add more content and style it using the HTML tags and CSS properties we've learned about today!}}
+
+---
+
+@Day 5
+Feedback, final touches and presentation of websites
+
+Today you will finish your final project and present them to the class (and parents!).
+
+*Presentation Structure*
+
+- Introduce yourself.
+- Show everyone your website and _briefly_ explain each section. Show them how the interactive parts work (links, transitions, title attributes, etc.).
+- Explain your HTML code. Briefly point out how the `<header>`, `<main>`, `<footer>`, and at least two other elements correspond to the visual part of your webpage.
+- Choose two or three parts of your webpage that you are most proud of. For each of them, show how you used CSS to target them, and explain how the CSS properties you used affect how they look.
+- Look up in the documentation at least two HTML elements or CSS properties you used. Find at least two facts that you could include in your webpage, and be sure to show the audience where you got each fact from.
+- Explain at least two challenges you had when making your webpage, and how you overcame them.
+}}
+
+---
+
+You Did It!
+Now go forth and make some webpages.
+Copyright © 2016 Darryl Yeo. All rights reserved.
+
+[[
+Day 1: (HTML stands for, used to define the structure and content of webpage - house) Parts of a website, creating an HTML file, defining structure and learned about various elements
+Day 2: (CSS stands for, used to define presentational aspects of webpage - house) CSS rules, properties (text color, background color, font-family, font-size, spacing with paddings and margins)
+Day 3: Targeting specific elements with attributes, classes and IDs; store images in a directory and incorporate into website
+Day 4: Adding internal hyperlinks, navigational menu; started on a second webpage, linked together to form a website
+--- Presentations ---
+Will email link to slides so students can review what they learned; also has links to resources for further learning. Added everyone to Newsletter of my blog; unsubscribe anytime
+
+
+CSS Units
+`vw` - percentage of the window's width
+`vh` - percentage of the window's height
+`vmin` - percentage of the window's smaller dimension
+`vmax` - percentage of the window's larger dimension
+
+Gopher Images
+https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Pocket_gopher.jpg/800px-Pocket_gopher.jpg
+https://upload.wikimedia.org/wikipedia/commons/2/2e/Pocket_gopher_-_Pacific_Grove_Museum_of_Natural_History_-_DSC06653.JPG
+https://upload.wikimedia.org/wikipedia/commons/2/2b/Gopher_2_%28PSF%29.png
+http://s7d2.scene7.com/is/image/woodstream/hh_sba_gopher?$LearningPgLarge$
+
+
+
+http://www.csszengarden.com/
+
+
+
+Feedback
+
+Overview Slide
+	Make it easy to understand, not too much technical terms
+
+House analogy
+
+Set ground rules, when breaks are, asking questions policy
+
+Eye contact
+
+Opening and closing tags on the same line?
+
+Make a complete webpage for them to emulate
+
+Slow down, use visuals, confirm understanding, leave room for questions, before asking them to do hands-on tasks
+
+Start 5:25 End 6:36
+]]

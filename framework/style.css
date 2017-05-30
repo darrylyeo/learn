@@ -1,0 +1,312 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, aside, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+strong { font-weight: bold; }
+em { font-style: italic; }
+
+
+
+
+
+
+html, iframe.editor {
+	background: url(/wp-content/uploads/DY-Logo-Animated.svg) center center no-repeat;
+	background-color: #f6f6f6;
+	background-size: 100px;
+}
+
+html {
+	background-attachment: fixed;
+	font-size: 1vw;
+	font-size: calc(7px + 0.5vw);
+}
+
+@media (max-width: 600px){
+	html {
+		font-size: 10px;
+	}
+}
+
+body {
+	color: rgba(0, 0, 0, 0.7);
+	font-family: "Asap";
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+}
+body:not(.loaded) {
+	opacity: 0.1;
+}
+
+h1, h2, h3, h4 {
+	font-family: "Slabo 13px";
+	line-height: 1.1;
+}
+h1, h2, section.day-intro h3 {
+	text-align: center;
+}
+h1 {
+	font-size: 6rem;
+	letter-spacing: -0.03em;
+	word-break: break-word;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}
+h2 {
+	font-size: 3.2rem;
+}
+h3 {
+	font-size: 2rem;
+}
+
+p, aside {
+	line-height: 1.6;
+}
+p + p {
+	margin-top: 1em;
+}
+
+a {
+	color: #67b7e1;
+	text-decoration: none;
+}
+
+ol, ul {
+	list-style-position: inside;
+}
+li + li {
+	margin-top: 0.8em;
+}
+
+pre, code {
+	background: radial-gradient(circle, rgba(0,0,0,0.05), rgba(0, 0, 0, 0.06));
+	border-radius: 4px;
+	display: inline-block;
+	font-family: Roboto Mono, monospace;
+	min-height: 30px;
+	margin: 0 1px;
+	padding: 0 5px;
+	white-space: pre;
+}
+pre {
+	border-radius: 10px;
+	margin: 10px;
+	padding: 0.7em 1em;
+	tab-size: 4;
+	text-align: left;
+}
+
+aside {
+	background: radial-gradient(rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.5));
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0 3px 5px;
+	display: inline-block;
+	padding: 20px;
+	text-align: center;
+}
+
+iframe {
+	width: 100%;
+	min-height: 60vh;
+}
+iframe.editor {
+	border: rgba(0, 0, 0, 0.1) 2px solid;
+	border-radius: 4px;
+	box-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+	box-sizing: content-box;
+	min-height: 400px;
+}
+
+#wrapper-template {
+	display: none;
+}
+
+header, main, footer {
+	font-size: 1.4rem;
+}
+
+header, section, footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 40px;
+}
+body.slides-mode header, body.slides-mode section, body.slides-mode footer {
+	min-height: 100vh;
+}
+body.slides-mode section {
+	padding-top: 6vh;
+	padding-bottom: 6vh;
+}
+header, footer {
+	background: radial-gradient(circle, rgba(34, 144, 202, 0.7), #67b7e1), url("/wp-content/uploads/Website.svg") center center fixed;
+	/*background-size: cover;*/
+	color: #fff;
+	text-align: center;
+	text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+}
+header {
+	min-height: 100vh;
+}
+footer {
+	min-height: 60vh;
+}
+
+header:after, section:after {
+	content: "● ● ●";
+	font-size: 20px;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	left: 0;
+	bottom: 20px;
+	z-index: 2;
+}
+section:after {
+	color: rgba(0, 0, 0, 0.3);
+}
+
+
+header > *, section > *, footer > * {
+	margin: 7px 0;
+}
+header > div, section > div, footer > div {
+	display: flex;
+	justify-content: space-between;
+}
+
+header #title-wrapper {
+	width: 70%;
+}
+#logo {
+	-webkit-filter: brightness(100) drop-shadow(rgba(0, 0, 0, 0.2) 0 2px 5px);
+	filter: brightness(100) drop-shadow(rgba(0, 0, 0, 0.2) 0 2px 5px);
+}
+
+section {
+	background-color: #fff;
+	background-attachment: fixed;
+	position: relative;
+}
+section:nth-child(odd) {
+	background-color: #f6f6f6;
+}
+/*section:before {
+	content: "▼";
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px;
+	color: #555;
+	font-size: 30px;
+	text-align: center;
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	position: absolute;
+	left: calc(50% - 30px);
+	top: -30px;
+	z-index: 2;
+}*/
+
+section.day-intro {
+	background-color: #CEFF71;
+	min-height: 400px;
+	/*height: 30vh;*/
+}
+section.day-intro.dots {
+	background-image: radial-gradient(circle, rgba(206, 255, 113, 0.9), rgba(206, 255, 113, 0.5)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"><line x1="0" y1="0" x2="30" y2="15" stroke="rgba(0, 0, 0, 0.05)" stroke-width="5" /><line x1="0" y1="15" x2="30" y2="30" stroke="rgba(0, 0, 0, 0.05)" stroke-width="5" /></svg>');
+}
+section.day-intro.stripes {
+	background-image: radial-gradient(circle, rgba(206, 255, 113, 0.9), rgba(206, 255, 113, 0.5)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"><line x1="0" y1="0" x2="30" y2="15" stroke="rgba(0, 0, 0, 0.05)" stroke-width="7" /><line x1="0" y1="15" x2="30" y2="30" stroke="rgba(0, 0, 0, 0.05)" stroke-width="7" /></svg>');
+}
+section.day-intro aside {
+	margin: 30px;
+}
+section:not(.day-intro):nth-child(even) aside {
+	background: radial-gradient(rgba(240, 240, 240, 0.45), rgba(240, 240, 240, 0.5));
+}
+
+.content-wrapper {
+	display: flex;
+	justify-content: space-between;
+	
+	align-self: stretch;
+	margin: 30px 0;
+	flex: 1;
+	position: relative;
+/*}
+.content-wrapper.no-editor {*/
+	text-align: center;
+}
+
+.content-wrapper .content {
+	margin: 0 auto;
+}
+
+.content-wrapper:not(.no-editor) .content {
+	flex: 2;
+}
+.editor {
+	flex: 3;
+}
+
+.content-wrapper.editor-two-fifth .content,
+.content-wrapper.editor-code-only .content,
+.content-wrapper.editor-output-only .content {
+	flex: 3;
+}
+.content-wrapper.editor-two-fifth .editor,
+.content-wrapper.editor-code-only .editor,
+.content-wrapper.editor-output-only .editor {
+	flex: 2;
+}
+
+.content-wrapper.editor-400 .editor {
+	flex: 0 400px;
+}
+
+.content-wrapper.editor-half .content, .content-wrapper.editor-half .editor {
+	flex: 1;
+}
+
+.content-wrapper.editor-only .content {
+	display: none;
+}
+
+.content-wrapper > * + * {
+	margin-left: 3%;
+}
+@media (max-width: 1000px) {
+	.content-wrapper {
+		flex-direction: column;
+	}
+	.content-wrapper > * + * {
+		margin-left: 0;
+		margin-top: 20px;
+	}
+}
+
+.content-wrapper .content div + div {
+	margin-top: 30px;
+}

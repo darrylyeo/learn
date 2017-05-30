@@ -1,0 +1,267 @@
+Make a Website Autobiography!
+Ages: (10-14)
+Tuition: $150
+Pre-Requisites: None!
+
+As the internet continues to grow, using websites as a media channel becomes more and more prevalent. Learn to use HTML and CSS to create a website about yourself from scratch! Bring your own computer.
+
+Skills Taught:
+	Basic HTML Markup: Titles, Subtitles, Paragraphs
+	Navigation Menus
+	Wireframing
+
+Day 1: Parts of a website, creating an HTML file, and basic structure and formatting tags
+	Introductions
+	Parts of a website
+	Visit Favorite/Popular Websites, identify parts
+	Terms and Definitions
+		Website, Webpage
+		HTML - What does it stand for?
+		CSS - What does it stand for?
+		Browser
+	HTML Basics
+		Tags, opening and closing
+		<html>, <head>, <body>, <title>
+			Indentation, tab key
+		<h#>
+			Come up with an awesome webpage title. Write it in a <h1>
+		Write a short story
+			<h2>title
+			<p>
+			Write a short story. (2 minutes)
+	Basic formatting
+		<em>, <strong>
+	Lists
+		<ul>/<ol>, <li>
+			Ordered List of 3 most favorite colors/ice cream flavors
+			Unordered list of favorite foods/animals
+			List of favorite websites (choose which kind)
+	Keeping the webpage organized
+		<div>
+			Used to break up or "divide" your webpage into sections
+			Make these divs:
+				header
+				main
+				footer
+	Turn your computer around and show everyone what a cool webpage you have!
+		
+	Who can tell me what you learned today?
+	Work Time
+
+Day 2: Attributes, classes and IDs, and CSS rules
+	Say your names again
+	Review of yesterday's concepts
+	CSS - What does it stand for?
+	<style>
+	
+	Terms and Definitions
+		stylesheet
+		"default"
+		CSS Rules, parts
+			Selectors
+			Properties
+	Text color, background
+	Selectors
+		tag name
+	Attributes, Classes and IDs
+		ID
+		class
+			give classes to color/ice cream list, style color and/or background
+		
+	Font-family, font-size
+	Start to plan final webpage
+
+Day 3: Links, images, external stylesheets, and CSS layout
+	Review of yesterday's concepts
+		Attributes
+	Anchors/Links
+		href Attribute
+		Turn list of favorite websites into links
+	Images
+		download images into local directory (commons.wikimedia.org)
+		reference them with local URIs
+		add images to list of foods/animals
+	
+	Move <style> to separate .css file
+		 <link> and src attribute
+	
+	Grouping elements
+		<div>
+	More CSS properties
+	display
+		Inline (water) vs. block (box, takes up its own line) vs. inline-block (a box that can float in water)
+	Box Model and units
+		margin, padding, border
+		px, em
+
+Day 4: More CSS layout, advanced CSS selectors, and styling state changes
+	descendant selector: " "
+	immediate child selector: >
+	immediate sibling selector: +
+		e.g. h2 + p { text-indent: 10px; }
+	float
+	:hover, :active
+		button colors
+	transforms
+		title scale() down on :hover
+	transition
+
+Day 5: Feedback, final touches and presentation of websites
+	Reflection/Review/Open Quiz
+	Work Time/Individual Help
+	Showcase (Parents are welcome)
+	
+
+
+
+
+
+
+
+Intro to Programming With JavaScript
+Ages: (10-14)
+Tuition: $150
+
+Agenda:
+Day 1: Hello World, Processing.js functions, colors and basic shapes
+	Introductions
+		What's a programming language?
+		
+Day 2: Variables, functions, animations, and control flow
+	
+
+Day 3: Events and user interaction
+	
+
+Day 4: Arrays, objects, and scoping
+
+
+Day 5: Feedback, final touches and presentation of projects
+	
+	
+
+
+
+
+
+Tell an Interactive Story with Scratch Programming
+Ages: (9-11)
+Tuition: $150
+Pre-Requisites: None!
+
+Tell a fun story while learning the basics of object-oriented programming! Students will use Scratch, a drag-and-drop programming interface, to design, control and animate their own cast of virtual characters. The end result will be a fun, interactive animation which they can take home and share with friends and family.
+
+Skills Taught:
+	Conditional Program Flow
+	Functions
+	Storyboarding
+	Creativity
+	Character Design
+	Problem-Solving
+
+Day 1: Initial story planning, block types, and making sprites
+	Introductions
+	Demonstration (Example of Completed Project)
+	Story Planning
+		Fold paper into 1/8ths
+		Number of characters
+		Plot
+		Dialogue
+	Introduction to Scratch
+	Blocks - http://wiki.scratch.mit.edu/wiki/Blocks
+		"Hat" blocks start scripts
+		"Stack" blocks
+		"Cap" blocks
+	"Control" blocks
+	Create a sprite
+
+Day 2: Events, movement, looks, and basic control
+	
+
+Day 3: Sequencing, custom blocks, and more control
+	
+
+Day 4: Sensing, interaction, and more events
+	
+
+Day 5: Feedback, final touches and presentation of projects
+	
+
+
+
+
+
+
+
+
+
+Crash course to JS
+Day 1:
+Variables - declaration, assignment
+Data types - numbers, strings, Booleans
+Operators - arithmetic, string concatenation
+Functions - invocation, parameters
+Control flow and Boolean expressions - if, else, else if, &&, ||
+Loops - while, do while, for
+Arrays - declaration, accessing items
+
+Day 2:
+Objects - declaration, accessing items
+Nesting arrays and objects
+Functions - declarations
+
+More advanced topics, if time allows:
+Object oriented programming - prototypes, inheritance
+Shortcuts - ternary operator, coercion, checking for initialization
+
+
+
+
+
+
+
+
+
+
+
+Design an Interactive Website!
+Prerequisites: HTML, CSS, JS
+
+Day 1
+	HTML/CSS Review
+		Elements
+		Attributes, Classes, IDs
+	JS Review
+		Objects, Properties
+	DOM Basics
+		Document Object Model
+		Nodes
+		
+	Like Button
+		Setting up HTML markup
+			<html>, <head>, <body>, <style>, <script>
+		Styling button
+		Get element by ID
+		Add event Listener
+		.classlist property
+	Side menu
+		Absolute, Relative, Fixed positioning
+		Toggling open/closed states
+	
+
+Day 2
+	Cookie Clicker
+		Make #cookie
+		Select
+
+Day 3
+	Final Project
+		Ideas:
+		- Light switch
+		- Hangman
+		- Typespeed/Keyboard Training
+		- Balloon Pop
+		- Tic Tac Toe (2D Arrays)
+		- Multiple Choice Quiz
+		- Clock
+		- Slideshow

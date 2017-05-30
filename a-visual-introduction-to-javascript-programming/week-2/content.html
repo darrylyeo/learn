@@ -1,0 +1,1413 @@
+A Visual Introduction to JavaScript Programming
+Summer 2016
+{"mode": "pjs"}
+
+---
+
+@Day 1
+Drawing and coloring shapes with Processing.js functions
+
+A *computer program* is a set of instructions for a computer to follow.
+
+Computer programs are written in a a special language known as a *programming language*.
+
+*JavaScript* is a programming language mostly used to make programs that run on webpages.
+
+We will learn how to use JavaScript along with the Processing.js library to make interactive animations and other cool projects!
+
+---
+
+The Canvas and Coordinate System
+
+The programs we will write take place on a *canvas*, or virtual drawing area. Our canvas is 400 pixels wide and 400 pixels tall.
+
+*x coordinates* represent the distance from the left side of the canvas, while *y coordinates* represent the distance from the top.
+
+The top left corner of the canvas is the *origin* of the coordinate grid, where the x and y coordinates are both `0`. This means that positive `y` values are _below_ the origin, not above!
+
+
+6	fill(0);
+	strokeWeight(5);
+	textAlign(CENTER, CENTER);
+	textSize(20);
+	noCursor();
+	mouseMoved = function(){
+		background(255);
+		point(mouseX, mouseY)
+		text(mouseX + ", " + mouseY, 200, 200);
+	}
+	mouseMoved();
+
+---
+
+Calling Functions
+
+A *function* is a command that is designed to perform a single task. By *calling* a function, we tell the computer to perform its task.
+
+To call a function, write its name and a pair of parentheses.
+```rect()```
+
+The task of the `rect` function is to draw a rectangle on the screen. But where's the rectangle?
+
+Computers aren't good at guessing what we want. If you don't give it enough information about what to do, it won't perform its task very well.
+
+To make it work better, we can *pass*, or give, the function four numbers that describe the rectangle we want. These numbers are known as *arguments*, or values that a function relies on to perform its task correctly.
+
+To pass arguments to a function, put them between the parentheses and separate them with commas.
+```rect(100, 100, 100, 100)```
+
+Finally, end the command with a semicolon (`;`). This tells the computer that the command has ended, and can expect another command to follow.
+```rect(100, 100, 100, 100);```
+
+{{Tell the computer to draw a rectangle on screen. Try changing the numbers, and figure out what each argument means.}}
+
+
+4	rect(100, 100, 100, 100);
+
+---
+
+Libraries and Processing.js[[ANALOGY]]
+
+A *library* is a program written in JavaScript that defines a set of functions. Each function does a small task, but when used together, they can accomplish a big task.
+
+We're using a library called *Processing.js*, which provides us with functions that allows you to draw and animate shapes on a *canvas*. As we saw, `rect` allows you to draw a rectangle at a certain coordinate position and with a certain size.
+
+Once you learn how these functions work and how to use them together, you can create almost anything you want, including animations, visualizations, and games!
+
+
+6	mouseX = 200;
+	mouseY = 30;
+	draw = function(){
+		pushMatrix();
+		fill(103, 183, 250, 100);
+		noStroke();
+		rect(0, 0, width, height);
+		translate(width/2, height/2);
+		rotate(sin(frameCount &#42; 0.2) &#42; 0.1);
+		scale(0.8 + dist(mouseX, mouseY, width / 2, height / 2) * 0.02);
+		fill(255);
+		textAlign(CENTER, CENTER);
+		text("Processing.js!", 0, 0);
+		popMatrix();
+	};
+	
+
+---
+
+Drawing Shapes
+
+Here are the names of four Processing.js functions:
+`rect` `ellipse` `triangle`
+
+Each one is named according to the type of shape they allow you to draw. When a shape function is called, the shape is drawn on top of the previously drawn shapes.
+
+`rect` takes four arguments. When called, a rectangle is drawn with the top left corner at (`x`, `y`). The `width` argument corresponds to the rectangle's width, and the `height` argument corresponds to the rectangle's height.
+`rect(x, y, width, height);`
+
+`ellipse` works just like `rect`, except that (`x`, `y`) represent its center.
+`ellipse(x, y, width, height);`
+
+`triangle` takes six arguments. Think of them as three pairs of arguments, where each pair is an x-y coordinate pair of one of the vertices.
+`triangle(x1, y1, x2, y2, x3, y3);`
+
+Keep each function call on its own line. Note that shapes are painted over the canvas in the oder you call their functions - a `rect` called after an `ellipse`
+
+{{
+Think of an object you can draw using these simple shapes, and draw it! Some ideas:
+
+- A face, animal, or robot
+- A house
+- A vehicle
+
+Don't worry if you can't think of the right numbers the first time. Just put down your best guess, see how it looks and adjust them as you like.
+}}
+
+
+4	rect(0, 370, 400, 30);
+	rect(80, 160, 240, 210);
+	rect(160, 265, 80, 105);
+	triangle(30, 160, 200, 30, 370, 160);
+	ellipse(200, 105, 65, 65);
+
+---
+
+Make Note of It!
+
+*Comments* allow you to make notes to yourself in your code. The computer will ignore them, but it can be very helpful to document what your code does in case you forget in the future, or if another programmer were to read your code.
+
+There are two ways to make comments.
+
+In a *single-line comment*, everything on a line that comes after two slashes is ignored.
+`// Single Line Comment`
+
+In a *multi-line comment*, everything between `/&#42;` and `&#42;/` is ignored.
+```/*
+  Multiple
+  Line
+  Comment
+*/```
+
+Comments can also be used to temporarily disable lines of code. By observing how the program behaves in the absence of a command that is "commented out", you can figure out what the command is used for.
+
+{{For each shape you used in your drawing, add a single-line comment explaining what each shape represents. If you forgot what a command does, comment it out temporarily to see what's missing!
+
+At the top of your program, add a multi-line comment. Add a title for your drawing, your name, and the date.}}
+
+
+4	/*
+	 * My House
+	 * by Darryl Yeo (6/5/16)
+	*/
+	
+	// Ground
+	rect(0, 370, 400, 30);
+	
+	// Wall
+	rect(80, 160, 240, 210);
+
+	// Door
+	rect(160, 265, 80, 105);
+	
+	// Roof
+	triangle(30, 160, 200, 30, 370, 160);
+
+	// Roof Window
+	ellipse(200, 105, 65, 65);
+
+---
+
+Filling Shapes With Color
+
+So far, all our shapes have a white fill. Let's give our drawing more flavor by changing the fill colors!
+
+All colors can be made as combinations of red, green, and blue. For each of these three colors, `0` is the lowest value and `255` is the highest.
+
+The `fill` function sets the fill color for all shapes drawn after it. Its arguments are the values of red, green, and blue respectively:
+`fill(red, green, blue);`
+
+`fill` can also take an *optional* parameter, `opacity`. An opacity of 255 will make the shape opaque, while an opacity of 0 will make the shape completely transparent.
+`fill(red, green, blue, opacity*);`
+
+{{Use the `fill()` function to color your scene. Use a [color picker](http://htmlcolorcodes.com/color-picker/) to help you find the shade you want!}}
+
+Like `fill`, the `background` function takes three color arguments. It paints a colored background over the entire canvas.
+`background(red, green, blue);`
+
+{{Add a background to your drawing. Be sure to call the `background` function _before_ all the shape functions, or the shapes will be covered up by the background!}}
+
+
+4	/*
+	 * My House
+	 * by Darryl Yeo (6/5/16)
+	*/
+	
+	// Sky
+	background(225, 235, 255);
+	
+	// Ground
+	fill(103, 250, 100);
+	rect(0, 370, 400, 30);
+
+	// Wall
+	fill(250, 192, 105);
+	rect(80, 160, 240, 210);
+
+	// Door
+	fill(255, 235, 158);
+	rect(160, 265, 80, 105);
+
+	// Roof
+	fill(103, 183, 250);
+	triangle(30, 160, 200, 30, 370, 160);
+
+	// Roof Window
+	fill(127, 215, 255);
+	ellipse(200, 105, 70, 65);
+
+---
+
+Stroke Colors and Stroke Weights
+
+By default, all our shapes have thin black strokes. We can change these as well!
+
+The `stroke` function sets the stroke color for all shapes that come after it. It works just like the `fill` function.
+`stroke(red, green, blue, opacity*);`
+
+We can use `strokeWeight` to change the stroke weight of shapes. `strokeWeight` takes one numerical argument, `weight`.
+`strokeWeight(weight);`
+
+{{Change the stroke color and stroke weight of all your shapes as you like!}}
+
+
+	/*
+	 * My House
+	 * by Darryl Yeo (6/5/16)
+	*/
+	
+	// Sky
+	background(225, 235, 255);
+
+	// Stroke Weight
+	strokeWeight(4);
+
+	// Ground
+	fill(103, 250, 100);
+	stroke(73, 220, 70);
+	rect(0, 370, 400, 30);
+
+	// Wall
+	fill(250, 192, 105);
+	stroke(165, 112, 35);
+	rect(80, 160, 240, 210);
+
+	// Door
+	fill(255, 235, 158);
+	rect(160, 265, 80, 105);
+
+	// Roof
+	fill(103, 183, 250);
+	stroke(63, 123, 180);
+	triangle(30, 160, 200, 30, 370, 160);
+
+	// Roof Window
+	fill(127, 215, 255);
+	ellipse(200, 105, 70, 65);
+
+---
+
+Disabling Fills and Strokes
+
+`noFill` disables the fill color for all shapes after it. Think of it as a regular `fill` command, but with a completely transparent color.
+`noFill();`
+
+Likewise, `noStroke` disables the stroke color for all shapes after it, like `stroke` with a completely transparent color.
+`noStroke();`
+
+---
+
+Text
+
+Text in JavaScript is represented by a special type of value called *strings*. Strings are denoted with quotation marks (double or single):
+`"I'm a string!"` `'Hello, world!'`
+
+The `text` function from Processing.js draws a string `string` at given `x` and `y` coordinates.
+`text(string, x, y);`
+
+The text size can be changed by passing a single numeric argument, `size`, to the `textSize` function, before calling `text`.
+`textSize(size);`
+
+You can change the text color using `fill`.
+
+{{Add some text to your drawing to serve as a title.}}
+
+
+	/*
+	 * My House
+	 * by Darryl Yeo (6/5/16)
+	*/
+	
+	// Sky
+	background(225, 235, 255);
+	
+	// Title Text
+	fill(90, 90, 90);
+	text("My House", 15, 30);
+	
+	// Stroke Weight
+	strokeWeight(4);
+	
+	// Ground
+	fill(103, 250, 100);
+	stroke(73, 220, 70);
+	rect(0, 370, 400, 30);
+	
+	// Wall
+	fill(250, 192, 105);
+	stroke(165, 112, 35);
+	rect(80, 160, 240, 210);
+	
+	// Door
+	fill(255, 235, 158);
+	rect(160, 265, 80, 105);
+
+	// Roof
+	fill(103, 183, 250);
+	stroke(63, 123, 180);
+	triangle(30, 160, 200, 30, 370, 160);
+	
+	// Roof Window
+	fill(127, 215, 255);
+	ellipse(200, 105, 70, 65);
+
+---
+
+More Shape Functions
+
+`point(x, y);`
+Draws a point at (`x`, `y`). Change the size of the point with `strokeWeight`.
+
+`line(x1, y1, x2, y2);`
+Draws a line from (`x1`, `y1`) to (`x2`, `y2`).
+
+`quad(x1, y1, x2, y2, x3, y3, x4, y4);`
+Four coordinate pairs, connected to form a quadrilateral.
+
+`arc(x, y, width, height, startAngle, stopAngle);`
+The part of an ellipse between two angles, `startAngle` and `stopAngle`. The first four arguments work like `ellipse`.
+
+---
+
+Shape Practice
+
+Use the shape functions we learned to copy this drawing as best as you can! Feel free to add your own variation to it.
+
+
+6	background(140, 228, 255);
+
+	noStroke();
+
+	// Water
+	fill(0, 136, 186, 100);
+	rect(0, 70, 400, 330);
+
+	// Sun
+	fill(255, 255, 122);
+	ellipse(35, 35, 35, 35);
+	stroke(255, 255, 122);
+	strokeWeight(2);
+	line(57, 35, 65, 35);
+	line(12, 35, 4, 35);
+	line(35, 12, 35, 4);
+	line(35, 56, 35, 64);
+
+	// Sand
+	fill(255, 242, 161);
+	noStroke();
+	ellipse(200, 415, 700, 100);
+
+	// Yellow Fish
+	fill(255, 234, 0);
+	ellipse(120, 270, 100, 70);
+	triangle(70, 270, 50, 300, 50, 240);
+	fill(0);
+	ellipse(148, 257, 10, 13);
+
+	// Purple Fish
+	fill(221, 0, 255);
+	ellipse(250, 170, 50, 30);
+	triangle(275, 170, 285, 180, 285, 160);
+	fill(0);
+	ellipse(236, 167, 6, 8);
+
+	// Bubbles
+	stroke(224, 238, 255);
+	strokeWeight(2);
+
+	// Left
+	fill(255, 255, 79, 80);
+	ellipse(173, 230, 10, 10);
+	ellipse(163, 213, 12, 12);
+	ellipse(173, 195, 15, 15);
+	ellipse(163, 171, 20, 20);
+
+	// Right
+	fill(190, 79, 255, 80);
+	ellipse(219, 155, 8, 8);
+	ellipse(210, 141, 10, 10);
+	ellipse(217, 125, 14, 14);
+	ellipse(207, 106, 18, 18);
+
+	// Seaweed
+	noFill();
+	stroke(99, 240, 91);
+	strokeWeight(6);
+	bezier(300, 400, 265, 316, 344, 314, 300, 250);
+	bezier(272, 400, 265, 316, 301, 314, 272, 225);
+	bezier(244, 400, 266, 316, 220, 314, 239, 250);
+
+---
+
+Code Your Own Drawing
+
+{{
+For the rest of the day, use all of the shape functions we learned to draw an elaborate scene.
+}}
+
+---
+
+Day 1: Review
+
+JavaScript is a programming language, most commonly used to make programs that run on `    `.
+
+A `    ` is a command that performs a single task.
+
+A `    ` is a program written in JavaScript that defines a set of functions.
+
+Processing.js allows you to draw shapes on a virtual `    ` and create interactive drawings, animations, and games.
+
+The origin of the coordinate system is at the `    ` of the canvas.
+
+`    ` tell the computer that a command has ended, and that the computer can expect another one to come after.
+
+To call a function, write its name, `    `, and a semicolon.
+
+Styling functions such as `fill`, `stroke`, and `strokeWeight` affect all shapes after it until `    `.
+
+Sometimes, you must give a function extra enough information about its task. These values that you pass to a function are called `    `.
+
+---
+
+@Day 2
+Variables, simple control flow, making animations and writing functions
+
+---
+
+Declaring Variables
+
+*Variables* allow you to store a value for you to use later. Think of a variable like a box.
+
+To use a variable, we must first *declare* them using a special JavaScript *keyword*: `var`. This is like making a new box and putting a label on it so we know what's inside.
+`var myVariable;`
+
+{{
+*Variable Naming Rules*
+
+- Made of letters, numbers, or `$` and `_` symbols.
+- Cannot start with a number.
+- Case-sensitive - `variableName`, `VariableName`, `variablename`, and `vArIAbLEnamE` are considered _different_ names.
+}}
+
+In addition to the naming rules, variables are most commonly named using the *camelCase* convention. Keep the entire name lowercase, but capitalize the first letter of each word after the first.
+
+Example variable names:
+`x` `myVariable` `numberOfCookies`
+
+After a variable is *declared*, you can *assign* it to a value. This is similar to put something inside of the box. This is done with the *assignment operator* (`=`).
+`myVariable = 100;`
+
+A variable can be reassigned at any time after it's been declared. This is like replacing the thing inside the box.
+
+As a shortcut, you can declare and assign a variable on the same line:
+`var myVariable = 100;`
+
+---
+
+Using Variables
+
+Variables can be used in place of values. If you use the name of the variable as one of the arguments of a function call, the value stored in the variable will be passed to the function.
+
+This line of code draws an ellipse centered at (200, 150), with a width of 100 and a height of 50.
+```ellipse(200, 150, 100, 50);```
+
+If we were to store each of these values in a variable, you could pass the variables to the function with the same result.
+
+```var ellipseX = 200;
+var ellipseY = 150;
+var ellipseWidth = 100;
+var ellipseHeight = 50;
+
+ellipse(ellipseX, ellipseY, ellipseWidth, ellipseHeight);```
+
+Notice how storing values in variables helps us describe what the value represents, because each value is associated with a variable name.
+
+---
+
+Make a Smiley Face!
+
+We're going to draw a simple smiley face, and then see how we can use variables to control different aspects of it.
+
+
+	background(229, 254, 255);
+	
+	fill(112, 195, 255);
+	noStroke();
+	
+	// Head
+	ellipse(200, 200, 30, 30);
+	
+	fill(0, 122, 209);
+	
+	// Eyes
+	ellipse(196, 195, 4, 4);
+	ellipse(204, 195, 4, 4);
+	
+	// Mouth
+	arc(200, 200, 20, 20, 0, 180);
+
+---
+
+Variable Relationships Using Math Expressions
+
+Math *operators* take two values and make them into one new value.
+`+` `-` `*` `/`
+
+For example, `5 + 5` would be equivalent to 10, and `42 / 7` would be equivalent to 6.
+
+The *order of operations* works just like it would in regular mathematics. You can also use parentheses to group operations together, just like parentheses in mathematics.
+```1 + 2 * 3 - 4; // 3
+(1 + 2) * (3 - 4); // -2```
+
+Operators work using variables, too.
+```var x = 3;
+var y = 10 * x; // 30```
+
+By assigning variables to mathematical expressions containing another variable, we can relate the two variables in some way.
+
+{{
+What are the values of each of these variables?
+
+```var a = 1 + 2;
+var b = 10 - 3;
+var c = a * (4 + 1);
+var d = (c - 1) / b;
+var e = a + b * c - d;```
+}}
+
+---
+
+Variable Relationships: Simple Example
+
+Let's say we want to draw a TV. Its aspect ratio, or the ratio of its width to its height, is 16:9. If I only know the width, what expression should we use to calculate the height? (Hint: it uses a variable.)
+
+
+	var televisionWidth = 300;
+	var televisionHeight = "???";
+
+	fill(0, 0, 0);
+	stroke(100, 100, 100);
+	strokeWeight(3);
+	rect(50, 50, televisionWidth, televisionHeight);
+
+---
+
+Variable Relationships: Another Simple Example
+
+We want to draw a donut, where the width and the height of the hole are half the width and half the height of the whole donut, respectively.
+
+
+	var donutX = 150;
+	var donutY = 150;
+
+	var donutWidth = 150;
+	var donutHeight = 100;
+
+	var donutHoleWidth = "???";
+	var donutHoleHeight = "???";
+
+	// Donut
+	ellipse(donutX, donutY, donutWidth, donutHeight);
+
+	// Donut Hole
+	ellipse(donutX, donutY, donutHoleWidth, donutHoleHeight);
+
+---
+
+Processing.js Dimension Variables
+
+The canvas size is fixed in our environment, but in theory can be changed. Processing.js provides two variables that we can use to make calculations for our shapes.
+`width` `height`
+
+`width` represents the width of the canvas, while `height` represents the height.
+
+Keep in mind that we want to avoid "hard-coding" numbers throughout our program as much as possible. If you need values that are a certain distance from the edges, you can most likely perform operations involving the `width` and `height` variables.
+
+{{
+- Draw a circle with a radius of 20 such that its outside touches the left and top sides of the canvas.
+- Draw a similar sized circle such that its outside touches the right and bottom sides of the canvas. Be sure to use the dimension variables, `width` and `height`.
+- Draw a circle in the center of the canvas. Be sure to use the dimension variables, `width` and `height`.
+- Draw a rectangle that covers the entire left half of the canvas.
+- Draw a rectangle that covers the entire bottom half of the canvas.
+}}
+
+---
+
+Variable Relationships: Dimensions Example
+
+We want to describe a rectangular area in terms of four distances, or margins, from each of the four edges of the canvas. What arguments should we pass to the `rect` function?
+
+
+	var marginLeft = 30;
+	var marginRight = 40;
+	var marginTop = 50;
+	var marginBottom = 60;
+	
+	rect("???", "???", "???", "???");
+
+---
+
+Variable Relationships: Advanced Example
+
+Right now, our drawing program uses a lot of "hard-coded" numbers. If we wanted to change one part of the drawing, say the height of the house, we'd have to change all the other numbers that might be related, such as the vertical coordinate of the bottom two points of the roof.
+
+By storing some important values in a variable and passing the variable as an argument to our function calls, we can easily change parts of our drawing by changing the value of the variable.
+
+{{Find a way to incorporate variables and math expressions in your drawing (or start a new one). Make it so that changing one variable will affect the position or size of least two shapes in a related way.}}
+
+
+	/*
+	 * My House
+	 * by Darryl Yeo (6/5/16)
+	*/
+
+	var halfWidth = width / 2;
+
+	var groundHeight = 30;
+	var wallWidth = 240;
+	var wallHeight = 210;
+	var roofOverhang = 50;
+	var roofHeight = 130;
+
+	var doorWidth = wallWidth / 3;
+	var doorHeight = wallHeight / 2;
+
+	var wallLeftX = halfWidth - wallWidth / 2;
+	var doorLeftX = halfWidth - doorWidth / 2;
+
+	var groundTopY = 400 - groundHeight;
+	var wallTopY = groundTopY - wallHeight;
+	var roofTopY = wallTopY - roofHeight;
+	var roofWindowY = roofTopY + roofHeight * 3/5;
+	var doorTopY = groundTopY - doorHeight;
+
+	var roofLeftX = halfWidth - wallWidth / 2 - roofOverhang;
+	var roofRightX = halfWidth + wallWidth / 2 + roofOverhang;
+
+
+	// Sky
+	background(225, 235, 255);
+
+	// Title Text
+	fill(90, 90, 90);
+	text("My House", 15, 30);
+
+	// Stroke Weight
+	strokeWeight(4);
+
+	// Ground
+	fill(103, 250, 100);
+	stroke(73, 220, 70);
+	rect(0, groundTopY, 400, groundHeight);
+
+	// Wall
+	fill(250, 192, 105);
+	stroke(165, 112, 35);
+	rect(wallLeftX, wallTopY, wallWidth, wallHeight);
+
+	// Door
+	fill(255, 235, 158);
+	rect(doorLeftX, doorTopY, doorWidth, doorHeight);
+
+	// Roof
+	fill(103, 183, 250);
+	stroke(63, 123, 180);
+	triangle(roofLeftX, wallTopY, halfWidth, roofTopY, roofRightX, wallTopY);
+
+	// Roof Window
+	fill(127, 215, 255);
+	ellipse(200, roofWindowY, 70, 65);
+
+---
+
+Assignment Operators and Incrementing/Decrementing
+
+Let's say we define a variable called `a`.
+`var a = 10;`
+
+If we wanted to add one to its value, we can use the regular assignment operator, `=`, to reassign `a` to a new value: its current value plus 1. 
+`a = a + 1;`
+
+A shorter way to do the same task is with a special assignment operator, `+=`. This way we don't have to repeat the variable name twice.
+`a += 1;`
+
+There are similar shortcuts for each of the four arithmetic operators.
+```a = a + 1;
+a += 1;
+
+b = b - 1;
+b -= 1;
+
+c = c * 5;
+c *= 5;
+
+d = d / 8;
+d /= 8;```
+
+If you only wish to add or subtract 1 from a variable's value, use the *increment*/*decrement* operators.
+`a++;` `b--;`
+
+{{
+What is the value of `a` and `b` at the end of this program?
+```var a = 10;
+var b = 4;
+a += 5;
+b--;
+a /= b;
+b *= a;```
+}}
+
+---
+
+@Day 3
+Functions and User Interaction
+
+---
+
+Defining Your Own Function
+
+Sometimes, we have a series of commands that we want to execute as a single command. That's exactly what *functions* are designed to do.
+
+Functions are made to do a single task. By turning a sequence of commands into a functions, we can make our code more resusable and concise.
+
+So far, we've been calling functions that have already been defined by our library, Processing.js.
+`rect()` `ellipse()` `fill()` `stroke()`
+
+Time for us to define our own function! All we have to do is define a variable and assign it to a new function.
+```var doSomething = function(){
+	
+};```
+
+Once we've defined the function, we can call it to run the code inside!
+`doSomething();`
+
+{{
+Go to your smiley program. Make a new function, then move all variable declarations and drawing commands inside. Be sure to leave out the `background`.
+}}
+
+
+	var x = 200;
+	var y = 200;
+	var headSize = 30;
+	var eyeSize = 4;
+	var mouthSize = 20;
+	
+	background(229, 254, 255);
+	
+	fill(112, 195, 255);
+	noStroke();
+	
+	// Head
+	ellipse(x, y, headSize, headSize);
+	
+	fill(0, 122, 209);
+	
+	// Eyes
+	ellipse(x - 4, y - 5, headSize, headSize);
+	ellipse(x + 4, y - 5, headSize, headSize);
+	
+	// Mouth
+	arc(x, y, mouthSize, mouthSize, 0, 180);
+
+---
+
+Using Function Parameters
+
+As you've seen, some functions take arguments, and others don't.
+`noStroke();` `strokeWeight(weight);`
+
+To allow a function to take arguments, add *parameters* inside of the parentheses.
+```var doSomething = function(a, b, c){
+	
+};```
+
+Inside of the function, parameters work just like variables. If you called the function like this:
+`doSomething(1, 2, 3);`
+
+The values of `a`, `b`, and `c` inside the function would be `1`, `2`, and `3` respectively.
+
+{{
+For each of the variables in your `drawSmiley` function, turn it into a function parameter. Use the initial values of the variables as the arguments to the function call.
+}}
+
+---
+
+Defining the Main Animation Function
+
+Now we will define a function, and let Processing.js do the function calling!
+
+Processing.js defines a variable called `draw`. When we assign this variable to a function, Processing.js will call that function about 30 times a second. This will serve as the basis of our animations.
+
+This is how to assign the variable `draw` to a function.
+```draw = function(){
+	// Everything inside of this function is called about 30 times a second.
+};```
+
+---
+
+Let's Make An Animation!
+
+Let's start with a simple animation of a rolling ball.
+
+When making an animation, use the following process:
+
+{{
+1. Figure out one aspect you want to animate.
+2. For that aspect, create a variable with a descriptive name.
+3. Figure out how you want the variable to change over time.
+4. Finally, in the `draw` function, use assignment operators and math expressions to change the value the way you want.
+}}
+
+
+6	var ballX = 0;
+	
+	draw = function(){
+		// Sky
+		background(100, 210, 255);
+
+		// Ground
+		fill(103, 240, 120);
+		stroke(73, 220, 70);
+		rect(0, 215, width, height - 215);
+
+		// Ball
+		fill(190, 255, 255);
+		ellipse(ballX, 200, 30, 30);
+
+		ballX++;
+	};
+
+---
+
+Starting Your First Animation
+
+In the `draw` function, draw a background and all the objects in your scene. In this case, we're going to draw the ground and a ball.
+
+Next, figure out what aspect we want to animate. In this case, we want the ball to roll across the ground - that is, animate its horizontal position.
+
+Now we have to represent that in a variable. Create a variable called `ballX`, before the assignment to the `draw` variable. Assign it to an initial value, and replace the appropriate argument to the `ellipse` function.
+
+How can we make the ball move forward?
+
+
+	draw = function(){
+		// Sky
+		background(100, 210, 255);
+
+		// Ground
+		fill(103, 240, 120);
+		stroke(73, 220, 70);
+		rect(0, 215, width, height - 215);
+
+		// Ball
+		fill(190, 255, 255);
+		ellipse(50, 200, 30, 30);
+	};
+
+---
+
+Mouse Interaction Variables
+
+Processing.js provides many variables for us to use in our animations. These include variables related to the state of the mouse that are automatically assigned to certain values.
+
+`mouseX` and `mouseY` are variables that represent the x-y coordinate position of the mouse.
+
+`mouseIsPressed` is a *boolean* variable that is `true` if your mouse button is held down, and `false` otherwise.
+
+---
+
+Booleans and Comparison Expressions
+
+*Booleans* are a type of value in JavaScript. They represent one of two states: `true` or `false`.
+
+Booleans are named after the logician, George Boole (1815 - 1864).
+
+There are several operators that produce boolean values when used in an expression.
+`===` `!==` `<` `>` `<=` `>=`
+
+`===` is the equality operator. The result of an equality expression is `true` if the left and right expressions have the same type and the same value.
+```2 + 3 === 5; // true
+"Hello" === "hello"; // false```
+
+`!==` is the inequality operator. It works oppositely to the equality operator.
+```2 + 3 !== 5; // false
+"Hello" !== "hello"; // true```
+
+`<`, `>`, `<=` and `>=` can be used to compare numbers.
+```20 < 300 / 10; // true
+-20 > 10 * 2; // false
+5 <= 5; // true
+1 + 10 >= 100; // false```
+
+{{
+What are the values of each of these variables?
+```var a = 1 + 2;
+var b = 4 + 5;
+var c = a === b;
+var d = a < b;
+var e = b / a >= (b * 2) / (b - a);
+var f = false === c;```
+}}
+
+---
+
+If and If/Else Statements
+
+*If statements* run a block of code if and only if a certain boolean *condition* is `true`.
+```var score = 10;
+var highScore = 20;
+
+var message = "Better luck next time!";
+
+if(score > highScore){
+	message = "You beat the high score!";
+}
+
+text(message, 30, 30);```
+
+You can add an *else statement* right after an `if` statement. This block of code will be run if the condition of the `if` statement turns out to be `false`.
+```var score = 10;
+var highScore = 20;
+
+var message;
+
+if(score > highScore){
+	message = "You beat the high score!";
+}else{
+	message = "Better luck next time!";
+}
+
+text(message, 30, 30);```
+
+Finally, you can add an `else if` statement to check other conditions in case the ones above are false. If none of the `if`s or `else if` blocks are run, then the `else` block will run.
+```var score = 10;
+var highScore = 20;
+
+var message;
+
+if(score > highScore){
+	message = "You beat the high score!";
+}else if(score === highScore){
+	message = "You matched the high score.Not bad!";
+}else{
+	message = "Better luck next time!";
+}
+
+text(message, 30, 30);```
+
+
+4	var score = 10;
+	var highScore = 20;
+
+	var message = "Better luck next time!";
+
+	if(score > highScore){
+		message = "You beat the high score!";
+	}
+
+	text(message, 30, 30);
+
+---
+
+Interaction Using If Statements
+
+One use for `if` statements in our Processing.js programs is that we can make certain things appear or disappear based on whether the mouse is pressed.
+
+{{Go back to one of your drawing programs from yesterday. Find one part that you could change based on whether the mouse is pressed. You could change a color or position, for example, or even replace a body part in a new pose.}}
+
+
+	draw = function(){
+		background(100, 255, 100);
+		
+		if(mouseIsPressed){
+			noStroke();
+			ellipse(100, 100, 100, 100);
+		}
+		
+		if(mouseX > width / 2){
+			fill(255, 50, 50);
+		}else{
+			fill(50, 50, 255);
+		}
+		rect(200, 200, 100, 100);
+	};
+
+---
+
+Controlling Animation With Conditions and If Statements
+
+What if we want the ball to roll only if we hold our mouse down? To make this happen, we can use an `if statement`.
+
+There's a problem with our animation. The ball will keep rolling forward, until it's off of the canvas!
+
+{{Use an `if` statement to stop the ball when it's almost about to roll past the edge of the canvas.
+
+Bonus: Change the program so that the ball will starting moving in the opposite direction whenever it hits the left or right edge.}}
+
+
+	var ballX = 0;
+	
+	draw = function(){
+		// Sky
+		background(100, 210, 255);
+
+		// Ground
+		fill(103, 240, 120);
+		stroke(73, 220, 70);
+		rect(0, 215, width, height - 215);
+
+		// Ball
+		fill(190, 255, 255);
+		ellipse(ballX, 200, 30, 30);
+
+		ballX++;
+	};
+
+---
+
+Processing.js Mouse Events
+
+Like `draw`, there are several other variables defined by Processing.js that you can assign to functions.
+
+Here are three such variables. Processing.js will call each of these functions whenever the user performs a corresponding action with the mouse.
+
+`mousePressed` - called when the user presses the mouse down.
+`mouseReleased` - called when the user releases the mouse.
+`mouseClicked` - called when the user releases the mouse after pressing.
+
+`mouseDragged` - called when the user moves the mouse while the mouse button is pressed.
+`mouseMoved` - called when the user moves the mouse while the mouse button is not pressed.
+
+`mouseOver` - called when the user moves the mouse over the canvas from outside.
+`mouseOut` - called when the user moves the mouse out of the canvas from inside.
+
+---
+
+Crazy Painter
+
+{{
+Use `mouseX` and `mouseY` to create a crazy painter program. Requirements:
+
+- You must use `mouseX`, `mouseY`, and at least three of the mouse event functions.
+- Be as creative and unique as possible! Play with color, stroke weights, and shapes. Use math expressions for even more variation!
+}}
+
+
+	var penStrokeWeight = 1;
+
+	mouseOver = function(){
+		penStrokeWeight = 1;
+	};
+
+	mouseDragged = function(){
+		stroke(mouseX, mouseY, mouseX - mouseY);
+		strokeWeight(penStrokeWeight);
+		line(mouseX, mouseY, pmouseX, pmouseY);
+		penStrokeWeight += 0.1;
+	};
+
+---
+
+Cookie Clicker / Don't Click The Button
+
+{{
+Make a simple game in which you must click on a cookie/button to score a point. Requirements:
+
+- Make a score variable, and increment it in one of the mouse event functions.
+- Display the score somewhere on the screen using the `text` function.
+- Make the graphics respond to user interaction through the use of `mouseIsPressed` or the mouse events. You can vary the color 
+- If the score exceeds a certain number, make your program do something different. For example, you could display a special message, or change the color scheme.
+}}
+
+
+	var numberOfCookies = 0;
+	var cookieRadius = 120;
+
+	cursor(HAND);
+
+	draw = function() {
+		if(mouseIsPressed){
+			background(255, 238, 214);
+		}else{
+			background(255, 245, 229);
+		}
+
+		strokeWeight(6);
+		stroke(209, 132, 0);
+		if(mouseIsPressed){
+			fill(255, 167, 36);
+			ellipse(width / 2, height / 2, cookieRadius &#42; 2, cookieRadius &#42; 2);
+
+		}else{
+			fill(250, 177, 80);
+			ellipse(width / 2, height / 2, cookieRadius &#42; 2 - 10, cookieRadius &#42; 2 - 10);
+		}
+
+		fill(255);
+		if(mouseIsPressed){
+			textSize(120);
+		}else{
+			textSize(100);
+		}
+		text(numberOfCookies, width / 2, height / 2);
+
+		fill(191, 130, 97);
+		textSize(20);
+		textAlign(CENTER, CENTER);
+		text("You have", width / 2, 50);
+		text("cookies.", width / 2, height - 50);
+	};
+
+	mousePressed = function(){
+		numberOfCookies++;
+	};
+
+---
+
+Processing.js Keyboard Events and Variables
+
+Here are some variables defined by Processing.js that can be assigned to functions.
+`keyPressed` - called when the user presses down on any keyboard key.
+`keyReleased` - called when the user releases a keyboard key.
+`keyTyped` - called when the user releases a key after pressing down on it.
+
+Additionally, there are two keyboard-related variables.
+`key` `keyCode`
+
+`key` holds a string corresponding to the last key that was typed. If you type the "a" key, the value of key will be the string `"a"`.
+`key === "a"; // true`
+
+`keyCode` holds a number that stands for a certain key. You can compare it to the `LEFT`, `RIGHT`, `UP`, and `DOWN` variables to check the last arrow key that was pressed.
+
+---
+
+Avatar Game
+
+{{
+Create a game where you control the position of a character (or shape) using the arrow keys.
+
+First create x and y position variables.
+
+Assign the `keyTyped` variable to a function. Inside the function, compare the `keyCode` variable to the four direction variables to determine which direction the character should move.
+
+Bonus: Once you're done, try changing the `keyTyped` function to the `draw` function.
+
+Bonus 2: Write conditional statements to prevent the character from moving outside of the canvas.
+}}
+
+---
+
+@Day 4
+Loops, arrays, and starting of final projects
+
+---
+
+Looping
+
+Computers are great at doing repetitive tasks, especially when you, the programmer, don't want to repeat a lot of code.
+
+A `while` loop allows you to repeat, or *iterate* over, a block of code indefinitely until a certain condition is false.
+```var i = 0;
+while(i &lt; 200){
+	rect(0, i, 40, 40);
+	i += 40;
+}```
+
+A `for` loop can accomplish a similar task, especially if the loop involves declaring a variable, increasing or decreasing it each iteration, and repeating until it is no longer less than or greater than a certain number.
+```for(var i = 0; i &lt; 200; i += 40){
+	rect(0, i, 40, 40);
+}```
+
+When in doubt about which one to use, choose the `while` loop. If it later turns out that you have a situation such as the one above, then you can change it to a `for` loop later.
+
+---
+
+Draw a Pattern
+
+{{Using loops, design your own pattern. Requirements:
+
+- Use at least two different kinds of shapes.
+- Somewhere in your pattern you must use a loop within a loop.
+- Bonus: Use animation or mouse interaction!
+
+Play around with color, shapes, stroke weights, and lots of math expressions. Try anything and everything and see what fits!}}
+
+
+	var stripeAlternate = true;
+
+	noStroke();
+	for(var x = 0; x &lt; width; x += 10){
+		if(stripeAlternate){
+			fill(0, 200, 255);
+		}else{
+			fill(33, 222, 255);
+		}
+		rect(x, 0, 10, height);
+		stripeAlternate = !stripeAlternate;
+	}
+
+---
+
+Another Pattern Example
+
+
+	background(0);
+
+	noFill();
+	strokeWeight(5);
+	for(var x = 1; x < 20; x++){
+		for(var y = 1; y < 20; y++){
+			stroke(255 - x &#42; 30 - y &#42; 10, 100 + x &#42; 10, 100 + y &#42; 30, 200);
+			ellipse(x &#42; 20, y &#42; 20, 30, 30);
+		}
+	}
+
+---
+
+Storing A List of Values in an Array
+
+An *array* is a data type. They hold multiple values at the same time, referenced by a numerical *index*. You can think of it as a stack of paper.
+
+Here we assign a variable, `groceryList`, to an array of five items.
+```var groceryList = ["bananas", "sugar", "bread", "cheese"];```
+
+Each item in the list can be accessed with a numerical index. The first item in the list has an index of 0, the second has an index of 1, and so on.
+```groceryList[0]; // "bananas"
+groceryList[1]; // "sugar"
+groceryList[2]; // "bread"
+groceryList[3]; // "cheese"```
+
+Trying to access an item that does not exist results in a value of `undefined`.
+```groceryList[4]; // undefined```
+
+You can access the length of an array using the `.length` property.
+`groceryList.length === 4; // true`
+
+---
+
+Modifying Arrays
+
+To add an item to the end of the array, use the `.push()` method.
+
+```var groceryList = ["bananas", "sugar", "bread", "cheese"];
+groceryList.push(10);
+groceryList; // ["bananas", "sugar", "bread", "cheese", 10]```
+
+{{
+What are the values of these variables?
+
+```var array = [1, "apple", 3, true, "hello"];
+var a = array[0];
+var b = array[3];
+var c = array.length;
+array.push("world");
+var d = array[5];
+var e = array.length;```
+}}
+
+---
+
+Balls on the Ground
+
+
+	var ballXPositions = [];
+
+---
+
+Reading Documentation
+
+There are many features of Processing.js that we have not covered. The *documentation* provides descriptions of all the possible functions you can use and how you might use them. Use this to your advantage when making your final projects!
+
+[Khan Academy Reference](https://www.khanacademy.org/computing/computer-programming/docs/pjs)
+
+[Processing Reference](http://processingjs.org/reference/)
+
+---
+
+Project Ideas
+
+- Hangman
+- Typespeed/Keyboard Training
+- Balloon Pop / Fruit Ninja
+- Hurdles / Dinosaur Game
+- Zombie Apocalypse (Objects)
+- Tic Tac Toe (2D Arrays)
+- Multiple Choice Quiz
+- Maze
+- Clock (Transformations)
+- Slideshow (Arrays, Arrays of objects)
+
+---
+
+@Day 5
+Feedback, final touches and presentation of projects
+
+Today you will finish your final project and present them to the class (and parents!).
+
+*Presentation Structure*
+
+- Introduce yourself.
+- Show everyone your final project and _briefly_ explain how it works.
+- Explain one part of your code.
+- Show how one of the other programs we made this week inspired a part of your final project.
+- Explain at least two challenges you had when making your program, and how you overcame them.
+
+---
+
+You Did It!
+Now go forth and write code!
+Copyright © 2016 Darryl Yeo. All rights reserved.
+
+[[
+Day 1: (JavaScript is a programming language, most commonly used to power logic behind webpages) Learned about functions, commands that are designed to perform a single task; Learned about Processing.js, a library that defines
+Day 2: Variables to store a value to use later, relating variables to each other through the use of math exprssions (house), simple control flow
+Day 3: writing functions, making animations (rolling ball), User interaction - mouse events, crazy painter program, cookie clicker; keyboard events
+Day 4: Loops, arrays, and starting of final projects
+--- Presentations ---
+Will email link to slides so students can review what they learned; also has links to resources for further learning. Added everyone to Newsletter of my blog; unsubscribe anytime
+
+	
+
+
+// Lazy Larry rectMode(CORNER)
+rectMode(CORNER);
+translate(100, 100);
+rect(-25, -30, 50, 60, 15);
+rect(-9, -16, 6, 20, 15);
+rect(3, -14.5, 6, 17, 15);
+rect(-4.5, 13.5, 13, 3, 15);
+
+// Larry rectMode(CENTER)
+translate(100, 100);
+rectMode(CENTER);
+rect(0, 0, 50, 60, 15);
+rect(-6, -6, 6, 20, 15);
+rect(6, -6, 6, 17, 15);
+rect(2, 15, 13, 3, 15);
+
+
+//Scaled up
+rectMode(CORNER);
+rect(-100, -120, 200, 240, 60);
+rect(-36, -64, 24, 80, 60);
+rect(12, -58, 24, 68, 60);
+rect(-18, 54, 52, 12, 60);
+
+rectMode(CENTER);
+rect(0, 0, 200, 240, 60);
+rect(-24, -24, 24, 80, 60);
+rect(24, -24, 24, 68, 60);
+rect(8, 60, 52, 12, 60);
+
+
+//Scaled up and centered at 200, 200
+rectMode(CORNER);
+rect(100, 80, 200, 240, 60);
+rect(164, 136, 24, 80, 60);
+rect(212, 142, 24, 68, 60);
+rect(182, 254, 52, 12, 60);
+
+]]
+
+
+[[
+Alternate house fill
+fill(103, 183, 250);
+rect(80, 160, 240, 210);
+
+fill(250, 192, 105);
+triangle(30, 160, 200, 30, 370, 160);
+
+fill(255, 215, 158);
+ellipse(200, 105, 70, 70);
+
+fill(127, 225, 255);
+rect(160, 265, 80, 105);]]
