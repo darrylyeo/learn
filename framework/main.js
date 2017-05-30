@@ -320,7 +320,7 @@ get(url, function(data){
 			$(this).remove();
 		}
 
-		var src = "/project/live-editor/index.html?code=" + encodeURIComponent(code);
+		var src = "/live-editor/index.html?code=" + encodeURIComponent(code);
 		if($contentWrapper.hasClass("editor-code-only")) src += "&output=0";
 		if($contentWrapper.hasClass("editor-output-only")) src += "&editor=0";
 		if(settings.mode) src += "&mode=" + settings.mode;
