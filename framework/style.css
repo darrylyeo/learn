@@ -31,7 +31,7 @@ em { font-style: italic; }
 
 
 html, iframe.editor {
-	background: url(/wp-content/uploads/DY-Logo-Animated.svg) center center no-repeat;
+	background: url(https://darryl-yeo.com/assets/themes/DY/logo/DY-Logo-Animated.svg) center center no-repeat;
 	background-color: #f6f6f6;
 	background-size: 100px;
 }
@@ -160,7 +160,7 @@ body.slides-mode section {
 	padding-bottom: 6vh;
 }
 header, footer {
-	background: radial-gradient(circle, rgba(34, 144, 202, 0.7), #67b7e1), url("/wp-content/uploads/Website.svg") center center fixed;
+	background: radial-gradient(circle, rgba(34, 144, 202, 0.7), #67b7e1), url("https://darryl-yeo.com/assets/themes/DY/graphics/Website.svg") center center fixed;
 	/*background-size: cover;*/
 	color: #fff;
 	text-align: center;
