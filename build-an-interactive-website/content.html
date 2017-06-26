@@ -1,0 +1,670 @@
+Build An Interactive Website!
+Summer 2017
+
+---
+
+@Day 1: The Document Object Model
+DOM basics, simple interactions
+
+---
+
+HTML Review
+
+*Elements* are the building blocks of a webpage.
+`<p></p>` `<div></div>` `<title></title>`
+
+An element is written with two *tags*:
+an opening tag `<p>` and a closing tag. `</p>`.
+
+You can put text inside of an element.
+`<p>To be or not to be, that is the question.</p>`
+
+Elements can be nested inside of each other.
+```
+<main>
+	<section>
+		<p>HTML is <em>fun!</em></p>
+	</section>
+</main>
+```
+
+
+	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+			<style>
+				
+			</style>
+		</head>
+		<body>
+			<h1>This Is A Big Heading.</h1>
+			<h2>This Is A Sub Heading.</h2>
+
+			<p>Paragraphs have spacing on the top and bottom.</p>
+			<p>Paragraphs can contain text, with some parts <em>emphasized</em> and <strong>bold</strong>.</p>
+			<p class="">Elements often have attributes.</p>
+
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Pocket_gopher.jpg/800px-Pocket_gopher.jpg" title="A gopher." alt="A gopher." width="400">
+
+			<h2>Lists are fun!</h2>
+			<ul>
+				<li>A list</li>
+				<li>with three</li>
+				<li>items.</li>
+			</ul>
+		</body>
+	</html>
+
+---
+
+CSS Selectors Review
+
+
+	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>The Webpage of Peter the Gopher</title>
+			<style>
+				
+			</style>
+		</head>
+		<body>
+			<h1>This Is A Big Heading.</h1>
+			<h2>This Is A Sub Heading.</h2>
+
+			<p>Paragraphs have spacing on the top and bottom.</p>
+			<p>Paragraphs can contain text, with some parts <em>emphasized</em> and <strong>bold</strong>.</p>
+			<p class="">Elements often have attributes.</p>
+
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Pocket_gopher.jpg/800px-Pocket_gopher.jpg" title="A gopher." alt="A gopher." width="400">
+
+			<h2>Lists are fun!</h2>
+			<ul>
+				<li>A list</li>
+				<li>with three</li>
+				<li>items.</li>
+			</ul>
+		</body>
+	</html>
+
+
+
+---
+
+JavaScript Review
+
+Use the JavaScript console (Command-Alt-I) to test these out for yourself.
+
+```
+// Single-line comment
+/*
+	Multi-line comment
+*/
+
+ 
+// Declaring a variable
+var cookies;
+
+// Assigning a value to a variable
+cookies = 4;
+cookies = cookies + 3;
+cookies += 2;
+cookies++;
+
+// Declaring and assigning a variable at the same time
+var myString = "Hello World";
+
+ 
+// Control Flow and Boolean Expressions
+var feelingLucky = true;
+if(feelingLucky){
+	console.log("Lucky!");
+}else if(cookies === 10){
+	console.log("You have exactly 10 cookies!");
+}else if(cookies > 10 && cookies < 100){
+	console.log("You have more than 10 cookies but less than 100.");
+}else{
+	console.log("What else is there to say?");
+}
+
+ 
+// Arrays
+var luckyNumbers = [8, 25, 777];
+
+console.log(luckyNumbers[2]);
+luckyNumbers[3] = luckyNumbers[1] - luckyNumbers[0]
+console.log(luckyNumbers[3]);
+console.log(luckyNumbers.length);
+
+var friends = [
+	"Alice",
+	"Bob",
+	"Chris"
+];
+
+console.log(friends[2]);
+friends.pop();
+console.log(friends[2]);
+friends.push("Dave");
+console.log(friends[2]);
+
+ 
+// Functions
+
+var greet = function(name){
+	return "Hello, " + name
+};
+console.log( greet("Darryl") )
+console.log( greet("world") )
+
+ 
+// Objects
+var myPet = {
+	name: "Spot",
+	species: "dog",
+	likes: [
+		"squeaky things",
+		"eating sausages",
+		"being scratched behind the ears"
+	],
+	isAwake: false,
+
+	status: function(){
+		var word;
+		if(this.isAwake){
+			word = "awake";
+		}else{
+			word = "asleep";
+		}
+		return this.name + " the " + this.species + " is " + word
+	}
+};
+
+console.log(myPet.name);
+console.log(myPet.likes[1]);
+
+myPet.age = 3;
+console.log(myPet.age);
+
+myPet.isAwake = !myPet.isAwake;
+console.log(myPet.isAwake);
+
+console.log(myPet.status());
+
+ 
+// Loops
+for(var i = 0; i < luckyNumbers.length; i++){
+	console.log( luckyNumbers[i] );
+}
+for(var friend of friends){
+	console.log( greet(friend) );
+}
+
+var countdown = 10;
+while(countdown > 0){
+	console.log(countdown)
+	countdown--;
+}
+```
+
+---
+
+Using CodePen
+
+[CodePen](https://codepen.io) allows you write HTML, CSS, and JavaScript independently of each other and see how your app or webpage looks like as you edit it.
+
+You won't have to worry about writing the document structure, i.e. `<html>`, `<head>`, `<body>`, `<style>`, or `<script>` elements. CodePen will take care of that for you!
+
+---
+
+Intro to the DOM
+
+The *Document Object Model* (DOM) is a programming interface for webpages. Every aspect of the webpage, including elements, content, and page structure, is represented in the form of JavaScript objects so that we can access, change and manipulate them with JavaScript.
+
+The *global variable* `document` is an object that represents the current document - the webpage in its entirety.
+
+Try typing `document` into your console!
+
+---
+
+Query An Element By Its ID
+
+The `document` object comes with several *methods* that we can use to get elements in our page.
+
+Let's find the element with the `id` of `title` using `document.getElementById()`. We'll pass a string for the ID we want, and store the returned result in a variable.
+
+```
+<h1 id="title">This Is A Big Heading.</h1>
+<h2 id="subtitle">This Is A Sub Heading.</h2>
+```
+
+```
+var title = document.getElementById('title');
+```
+
+---
+
+Modify an Element's Content
+
+All element objects have a *property* named `.innerText`, a string that represents the text inside.
+
+```
+console.log(title.innerText);
+```
+
+To change the text, simply assign this property to a new string.
+
+```
+var title = document.getElementById('title');
+title.innerText = "This Is A Very Big Heading!";
+
+var subtitle = document.getElementById('subtitle');
+subtitle.innerText += " :)";
+```
+
+
+1	<h1 id="title">This Is A Big Heading.</h1>
+	<h2 id="subtitle">This Is A Sub Heading.</h2>
+	<script>
+	var title = document.getElementById('title');
+	title.innerText = "This Is A Very Big Heading!";
+
+	var subtitle = document.getElementById('subtitle');
+	subtitle.innerText += " :)";
+	</script>
+
+---
+
+Modify an Element's Style
+
+You can change the CSS styling of an element with the `.style` property.
+
+`.style` is an object where keys correspond to CSS properties (except instead of `kebab-case`, the names are `camelCase`).
+
+```
+subtitle.style.color = "forestgreen";
+title.style.backgroundColor = "skyblue";
+```
+
+CSS properties you change via `.style` are stored in the `style` attribute of the HTML tag:
+`<h1 id="title" style="background-color: skyblue;">This Is A Big Heading.</h1>`
+
+
+1	<h1 id="title">This Is A Big Heading.</h1>
+	<h2 id="subtitle">This Is A Sub Heading.</h2>
+	<script>
+	var title = document.getElementById('title');
+	title.innerText = "This Is A Very Big Heading!";
+
+	var subtitle = document.getElementById('subtitle');
+	subtitle.innerText += " :)";
+	
+	subtitle.style.color = "forestgreen";
+	title.style.backgroundColor = "skyblue";
+	</script>
+
+---
+
+Event Listeners
+
+*Event listeners* allow you to run a task in response to a user's interaction with an element. The element will "listen" for an event to be triggered, then run a *callback function*.
+
+Use the `.addEventListener()` method to attach an event listener to an element. Pass two arguments: a string for the name of the event, then a function you want to be called when the event.
+
+```
+<button id="my-button">Click Me!</button>
+```
+
+```
+var button = document.getElementById('my-button');
+
+button.addEventListener("click", function(){
+	button.innerText = "Yay! You clicked me!";
+});
+```
+
+{{
+*Some Common Mouse Events*
+
+- `"click"`: Mouse clicks inside the element
+- `"dblclick"`: Mouse clicks two times fast inside the element
+- `"mouseenter"`: Mouse moves from outside to inside of element
+- `"mouseleave"`: Mouse moves from inside to outside of element
+- `"mousemove"`: Mouse moves around inside element
+}}
+
+
+1	<style>button {font-size: 3em;}</style>
+	<button id="my-button">Click Me!</button>
+	<script>
+	var button = document.getElementById('my-button');
+
+	button.addEventListener('click', function(){
+		button.innerText = "Yay! You clicked me!";
+	});
+	</script>
+
+---
+
+Let's Practice!
+
+{{
+Choose one of these challenges, and create it using what you know about HTML, CSS, and JavaScript so far. Be creative!
+
+- Riddle: Display a question on the webpage along with at least three answer buttons. Display a victory message when the correct answer is picked, and a failure message otherwise.
+- Counter: Start with two buttons and a number display that shows 0. When one of the buttons is clicked, increase the number by 1; for the other, decrease by 1.
+- Activity Logger: Make a button. Whenever any of the 5 above events is triggered on the button, `console.log()` a sentence describing what occurred (e.g. on double click, output `"You double clicked the button! Click-click!"`).
+}}
+
+---
+
+@Day 2
+Modifying attributes and styles, structure and content
+
+---
+
+Manipulating Classes
+
+The HTML attribute `class` is not only useful for CSS styling. They can be used to store information about an element's current *state*.
+
+Before: `<button id="like-button">Like</button>`
+After: `<button id="like-button" class="liked">Like</button>`
+
+You can manipulate classes with an element's `.classList` property.
+`.classList.add()` `.classList.remove()` `.classList.toggle()`
+
+*Dynamically manipulated* classes are especially powerful when used with CSS. 
+
+```
+<button id="like-button">Like</button>
+```
+
+```
+#like-button {
+	background-color: white;
+	color: gray;
+}
+#like-button.liked {
+	background-color: #3b5998;
+	color: #fff;
+}
+```
+
+```
+var button = document.getElementById('like-button');
+
+button.addEventListener('click', function(){
+	button.classList.toggle("liked");
+});
+```
+
+
+1	<button id="like-button">Like</button>
+	<style>
+	#like-button {
+		background-color: white;
+		color: gray;
+		font-size: 3em;
+	}
+	#like-button.liked {
+		background-color: #3b5998;
+		color: #fff;
+	}</style>
+	<script>
+	var button = document.getElementById('like-button');
+
+	button.addEventListener('click', function(){
+		button.classList.toggle("liked");
+	});
+	</script>
+
+---
+
+Night and Day
+
+
+
+---
+
+Query An Element By A CSS Selector
+
+Sometimes you'll want to get an element that doesn't have an ID. `document.querySelector()` can help with that!
+
+`.querySelector()` takes a string with a CSS selector, and returns the first Element that matches it.
+
+```
+// Get the first <strong> element that is inside a <p>
+var strongElement = document.querySelector('p strong');
+```
+
+---
+
+Querying Multiple Elements
+
+Here are two ways to access multiple elements at once.
+`document.getElementsByTagName()` `document.querySelectorAll()`
+
+`.getElementsByTagName()` will return an `HTMLCollection` object containing all the elements that match an element name.
+
+```
+// Get all <h2>s
+var headings = document.getElementsByTagName('h2');
+```
+
+`.getElementsByTagName()` will return an `NodeList` object containing all the elements that match an element name.
+
+```
+// Get all <strong> elements inside a <p>
+var strongElements = document.querySelectorAll('p strong');
+```
+
+---
+
+Iterating Through Lists of Elements
+
+`HTMLCollection` and `NodeList` behave similarly to arrays, which means we can iterate through them an access each element.
+
+Here's how to add a `:)` to all `<h2>`s:
+
+```
+for(var i = 0; i < headings.length; i++){
+	var heading = headings[i];
+	heading.innerText += ' :)';
+}
+```
+or
+```
+for(var heading of headings){
+	heading.innerText += ' :)';
+}
+```
+
+
+1	<h2>This Is A Sub Heading.</h2>
+	<h2>This Is Another Sub Heading.</h2>
+	<h2>All of these have smiley faces.</h2>
+	<script>
+	var headings = document.getElementsByTagName('h2');
+	for(var heading of headings){
+		heading.innerText += ' :)';
+	}
+	</script>
+
+---
+
+You Have The Tools, Now Create Something Fun!
+
+{{
+- Timer
+- Target Shooter
+- Quiz
+- Color Picker
+- Virtual Keyboard
+- Something Else?
+}}
+
+---
+
+@Day 3: Forms
+
+---
+
+The `<form>` Element
+
+*Forms* allow users to enter information in a variety of ways.
+
+{{
+A Basic Form Workflow
+
+- User fills out form
+- User submits form
+- Form information is processed
+- The page reacts to the information and displays output on the page.
+}}
+
+---
+
+The `<input>` Element
+
+`<input>` represents a component of a form which a user can enter information into.
+
+There are many types of inputs, and they are distiguished with the `type` attribute.
+
+---
+
+Text Fields
+
+Make a text field with `<input type="text">`.
+
+---
+
+Input Events
+
+---
+
+Making a Multiple Choice Quiz
+
+---
+
+Form Validation
+
+---
+
+{{
+To-Do List
+Word Counter
+Calculator
+}}
+
+---
+
+The `:hover` Pseudoclass
+
+Add `:hover` to any selector to make a CSS rule apply only when the mouse is hovered over an element.
+```a:hover {
+	color: green;
+}```
+
+`:hover` is an example of a *pseudoclass*. It is different from a regular class in that they represent a special state of an element.
+
+---
+
+Transitioning Hovered Elements
+
+The `transition` property allows you animate certain properties of CSS elements when they change state.
+
+To use it, set its value to the name of the property you wish to animate, and a duration in seconds (`s`).
+
+```a {
+	color: blue;
+	transition: color 0.3s;
+}
+a:hover {
+	color: green;
+}```
+
+To animate multiple properties at once, separate each one with a comma:
+```a {
+	background-color: black;
+	color: blue;
+	transition: color 0.3s, background-color 1s;
+}
+a:hover {
+	background-color: white;
+	color: green;
+}```
+
+To animate every single possible property, use the `all` keyword:
+```a {
+	transition: all 0.3s;
+}```
+
+---
+
+Review Activity: Make a Button!
+
+{{
+1. Make a new webpage. Add a doctype declaration, and the `<html>`, `<head>`, and `<body>` elements.
+2. Add a `<button>` element to the body.
+3. Add a `&lt;style>` element. Write a rule that targets the button.
+4. Use as many CSS properties as you can to make the button look like a button!
+}}
+
+---
+
+Using the Documentation and Performing Research
+
+Computer languages
+
+If you ever need more information about how certain aspects of HTML or CSS works, the *documentation* on the Mozilla.org Developer Network is a great place to look.
+[HTML Reference](https://developer.mozilla.org/en-US/docs/web/html/reference) | [CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
+
+{{
+Look through the HTML and CSS documentations. Find some of the HTML tags/CSS properties we learned about
+}}
+
+Chances are you have a question that others have asked before and others have answered. You can also type your question directly into Google, and Google will help you find a page that may have the answer you're looking for.
+
+{{
+Take a moment to come up with two insightful questions about something we learned about in this class. Be very specific about your question, and go beyond the obvious!
+
+Once you've checked in with me, do some research on your questions. Search on [Google](https://google.com) or [StackOverflow](https://stackoverflow.com) and report at least three new things you learned.
+
+Finally, see if you can find a way to incorporate your findings into your website.
+}}
+
+---
+
+jQuery: Syntactic Sugar
+
+---
+
+Work Time
+
+{{Use the rest of today to add more content and style it using the HTML tags and CSS properties we've learned about today!}}
+
+---
+
+@Day 5
+Feedback, final touches and presentation of websites
+
+Today you will finish your final project and present them to the class (and parents!).
+
+*Presentation Structure*
+
+- Introduce yourself.
+- Show everyone your website and _briefly_ explain each section. Show them how the interactive parts work (links, transitions, title attributes, etc.).
+- Explain your HTML code. Briefly point out how the `<header>`, `<main>`, `<footer>`, and at least two other elements correspond to the visual part of your webpage.
+- Choose two or three parts of your webpage that you are most proud of. For each of them, show how you used CSS to target them, and explain how the CSS properties you used affect how they look.
+- Look up in the documentation at least two HTML elements or CSS properties you used. Find at least two facts that you could include in your webpage, and be sure to show the audience where you got each fact from.
+- Explain at least two challenges you had when making your webpage, and how you overcame them.
+}}
+
+---
+
+You Did It!
+Now go forth and make some webpages.
+Copyright © 2016 - 2017 Darryl Yeo. All rights reserved.
